@@ -1,1 +1,145 @@
-"My page" 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gladys Ng's site</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+body{
+	max-height: 800px;
+	max-width: 1400px;
+	background-color: #f4feff;
+
+	
+	font-family: 'Raleway', sans-serif;
+	color: #085191;
+	margin: 30px;
+}
+
+.button {
+	position: relative;
+	left: 3px;
+	background-color: #fff;
+	font-size: 24px;
+	padding: 10px 10px 10px 20px;
+	width: 120px;
+	height: 30px;
+	border: 1px solid #085191;
+	border-radius: 5px 40px 40px 5px;
+	box-shadow: 3px 3px 3px navy;
+}
+
+#header {
+	position: relative;
+	margin: 30px;
+	background-color: #fff;
+	font-size: 60px;
+	padding: 25px;
+	border: 1px solid #085191;
+	border-radius: 15px;
+	box-shadow: 3px 3px 3px navy;
+	width: 1351px;
+}
+
+#belowHeader {
+	margin: 50px 0px 0px 30px;
+	border: 0px;
+	width: 1205px;
+	max-height: 800px;
+}
+
+#pageContent {
+	position: relative;
+	left: 200px;
+	top: -208px;
+	background-color: #fff;
+	font-size: 20px;
+	border: 1px solid #085191;
+	border-radius: 15px;
+	max-height: 400px;
+	padding: 0 40px 30px 40px;
+	box-shadow: 3px 3px 3px navy;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="header">Welcome to Gladys' website!</div>
+
+<div id="belowHeader">
+	<div class="button" id="btnHome"> Home </div>
+	<div class="button" id="btnAbout"> About </div>
+	<div class="button" id="btnProjects"> Projects </div>
+	<div class="button" id="btnContact"> Contact </div>
+	<div id="pageContent"> 
+	<h1>Home</h1>
+	<p>
+		Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
+		<br> <br>
+		<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
+		<br> <br>
+		Anyways, feel free to browse around, if only to play with the animations!
+	</p>
+	</div>
+</div>
+
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js/greensock/plugins/CSSPlugin.min.js"></script>
+<!--- Be sure to load EasePack if you want to use a specific ease -->
+<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
+<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+
+<script>
+
+	const buttonWidth = 120, buttonHeight = 30;
+/*window.onload = function() {
+	var logo = document.getElementById("logo");
+	TweenLite.to(logo, 2, {left:"440px", ease:Bounce.easeOut});
+	
+		Tip: Try substituting the following eases:
+	Elastic.easeIn
+	Elastic.easeInout
+	Back.easeOut
+	Power1.easeOut
+	Power2.easeOut
+	Power3.easeOut
+	Power4.easeOut
+	SlowMo.ease
+	
+} */
+
+	 function buttonOver() {
+		var button = $(this);
+		//TweenMax.to(button, 0.2, {css: {scaleX: 0.8}, ease:Cubic.easeInOut});
+		var newWidth = buttonWidth+20;
+		button.stop().animate({backgroundColor: "#085191", color: "#fff", width: newWidth+"px"}, 150);
+		//document.getElementById("buttons").style.backgroundColor = "#000";
+		//document.getElementById("buttonLabels").style.color = "#fff";
+	}
+	
+	function buttonOut() {
+		var button = $(this);
+		//TweenMax.to(button, 0.2, {css: {scaleX: 1}, ease:Cubic.easeInOut});
+		var newWidth = buttonWidth;
+		button.stop().animate({backgroundColor: "#fff", color: "#085191", width: newWidth+"px"}, 150);
+		//document.getElementById("buttons").style.backgroundColor = "#fff";
+		//document.getElementById("buttonLabels").style.color = "#000";
+	}
+	
+	$(document).ready(function() {
+	$(".button").each(function(i)
+		{
+			$(this).hover(buttonOver, buttonOut);
+		});
+		
+	});
+	
+							
+</script>
+
+</body>
+</html>

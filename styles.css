@@ -1,0 +1,29 @@
+body {
+	font: 25px calibri;
+	text-align: center;
+	margin-right: 300px;
+	margin-left: 30px;
+	border: 1px;
+}
+
+h1, h2 {
+	color: #705000;
+}
+
+hr {
+	color: #705000;
+}
+
+
+#toc li {
+	list-style: none;
+	text-decoration: none;
+}
+
+.toc-buttons {
+	list-style: none;
+	text-decoration: none;
+	-webkit-appearance: button;
+	appearance: button;
+	display: inline;
+}
