@@ -1,29 +1,95 @@
-body {
-	font: 25px calibri;
+* {
+	/* remove all blank space in a browser compatible way*/
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+	
+body{
+
+	background-color: #f9fdff;	
+	font-family: 'Raleway', sans-serif;
+	color: #085191;
+	height: 100%;
+}
+
+.menuBtn {
 	text-align: center;
-	margin-right: 300px;
-	margin-left: 30px;
-	border: 1px;
+	color: #085191;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	position: relative;
+	background-color: #fff;
+	font-size: 30px;
+	padding: 10px 20px;
+	height: auto;
+	width: 220px;
+	border: 1px solid #085191;
+	border-radius: 0px 20px 20px 0px;
+	box-shadow: 1px 4px 10px #085191;
 }
 
-h1, h2 {
-	color: #705000;
+#header-decoration {
+	position: absolute;
+	bottom: 0;
+	font-size: 20px;
+	color: #085191;
+	background-color: #fff;
+	width: 100%;
+	margin-top: 20px;
+	padding: 20px;
 }
 
-hr {
-	color: #705000;
+#header, footer {
+	position: relative;
+	/* margin: 30px;
+	background-color: #fff; */
+	background-color: #42bbc9;
+	color: #fff;
+	font-size: 70px;
+	padding: 25px 25px;
+	text-align: center;
+	/* border: 1px solid #085191;
+	border-radius: 15px; */
+	box-shadow: 0px 4px 10px #085191;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px 5px #085191;
+}
+
+footer {
+	clear: both;
+	position: absolute;
+	bottom: 0;
+	height: 60px;
+	min-height: 100%;
 }
 
 
-#toc li {
-	list-style: none;
-	text-decoration: none;
+#belowHeader {
+	border: 0px;
+	margin: 50px 20px 50px 0px;
 }
 
-.toc-buttons {
-	list-style: none;
-	text-decoration: none;
-	-webkit-appearance: button;
-	appearance: button;
-	display: inline;
+#belowHeader h1 {
+	font-size: 40px;
+	margin-bottom: 30px;
+	color: #2693a0;
+	text-shadow: 1px 1px 1px #085191;
+}
+
+#mainContent {
+	position: absolute;
+	left: 250px;
+	top: 200px; 
+	margin: 0px 40px 0px 30px;
+	font-size: 20px;
+	/*border: 1px solid #085191;
+	border-radius: 15px;
+	max-height: 400px;
+	box-shadow: 3px 3px 3px navy;  */
+	padding: 0 40px 30px 40px;
 }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gladys Ng's site</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<!--<script type='text/javascript' src='js/jquery.ba-hashchange.min.js'/>-->
+	<script src='js/modernizr.js'></script>
+	<script type="text/javascript" src="js/jquery.pjax.js"></script>
+	<script type='text/javascript' src='js/dynamicpage.js'></script>
+	<script type="text/javascript" src="js/greensock/plugins/CSSPlugin.min.js"></script>
+	<!--- Be sure to load EasePack if you want to use a specific ease -->
+	<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
+	<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+</head>
+
+<body>
+
+<div id="header">Welcome to Gladys' website!</div>
+
+<div id="belowHeader">
+	<div id="menu">
+		<a href="index.html" class="menuBtn" id="btnHome" onclick="menuBtnClicked(this)"> Home </a>
+		<a href="about.html" class="menuBtn" id="btnAbout" onclick="menuBtnClicked(this)"> About </a>
+		<a href="projects.html" class="menuBtn" id="btnProjects" onclick="menuBtnClicked(this)"> Projects </a>
+		<a href="contact.html" class="menuBtn" id="btnContact" onclick="menuBtnClicked(this)"> Contact </a>
+	</div>
+	<div id="mainContent"> 
+		<div id="guts">
+			<h1>About</h1>
+			<p>
+				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
+				<br> <br>
+				<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
+				<br> <br>
+				Anyways, feel free to browse around, if only to play with the animations!
+			</p>
+		</div>
+	</div>
+	
+</div>
+
+<script src="menuBtnAnimation.js"/>
+<script src="dynamicpage.js"/>
+<script>
+	
+/*window.onload = function() {
+	var logo = document.getElementById("logo");
+	TweenLite.to(logo, 2, {left:"440px", ease:Bounce.easeOut});
+	
+		Tip: Try substituting the following eases:
+	Elastic.easeIn
+	Elastic.easeInout
+	Back.easeOut
+	Power1.easeOut
+	Power2.easeOut
+	Power3.easeOut
+	Power4.easeOut
+	SlowMo.ease
+	
+} */
+
+
+	
+							
+</script>
+
+</body>
+</html>
