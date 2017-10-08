@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" href="icon_titleBar.png" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gladys Ng's site</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
@@ -12,6 +14,9 @@
 	<script src="js/modernizr.js" />
 	<script type="text/javascript" src="js/jquery.pjax.js"></script>
 	<script type='text/javascript' src='js/dynamicpage.js'></script>
+	<script type="text/javascript" src="js/header-animation.js"/>
+	<script type="text/javascript" src="selectableLinkToClipboard.js"/>
+	
 	<script type="text/javascript" src="js/greensock/plugins/CSSPlugin.min.js"></script>
 	<!--- Be sure to load EasePack if you want to use a specific ease -->
 	<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
@@ -23,67 +28,135 @@
 <body>
 
 <div id="header">
-	<b>Welcome to Gladys' website!</b>
+	<div id="header-text"><b>Welcome to Gladys' website!</b></div>
 	
 </div>
 
 <div id="belowHeader">
 	<div id="menu">
-		<button class="menuBtn" id="btnHome"> Home <span style="display:inline-block; width: 20px;"></span> <i class="fa fa-home" aria-hidden="true"></i></button>
-		<button class="menuBtn" id="btnAbout" > About <span style="display:inline-block; width: 28px;"></span><i class="fa fa-user" aria-hidden="true"></i></button>
-		<button class="menuBtn" id="btnProjects"> Projects <span style="display:inline-block; width: 3px;"></span><i class="fa fa-tasks" aria-hidden="true"></i></button>
-		<button class="menuBtn" id="btnContact"> Contact <span style="display:inline-block; width: 6px;"></span><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+		<button class="menuBtn" id="btnHome"> <i class="fa fa-home" aria-hidden="true"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
+		<button class="menuBtn" id="btnAbout"> <i class="fa fa-user" aria-hidden="true"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
+		<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card" aria-hidden="true"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
+		<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks" aria-hidden="true"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
+		<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle" aria-hidden="true"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
 	</div>
 	<div id="mainContent"> 
 		<div id="content-home">
 			<h1>Home</h1>
 			<p>
-				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
+				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this just to learn JavaScript and jQuery animations.
 				<br> <br>
-				<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
-				<br> <br>
-				Anyways, feel free to browse around, if only to play with the animations!
+				Anyways, feel free to browse around!
 			</p>
 		</div>
 		
 		<div id="content-about" style="display: none;">
-			<h1>About</h1>
+			<h1>About me</h1>
 			<p>
-				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
-				<br> <br>
-				<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
-				<br> <br>
-				Anyways, feel free to browse around, if only to play with the animations!
+				<img id="gladys-pic" src="gladys_pic.jpg" width="25%" align="left" alt="A picture of me trying to be cool. Maybe it's for the best that you can't see it..."/>
+				Hi! Glad you made it.
+				<br><br>
+				Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
+				<br><br>
+				I'm a third year UCLA computer science major who loves to learn, especially about the tiny ingenuities in programming. Besides coding, I enjoy drawing, good food, bad jokes, and anything that makes me think!
+				<br><br>
+				If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
 			</p>
 		</div>
 		
 		<div id="content-projects" style="display: none;">
 			<h1>Projects</h1>
 			<p>
-				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
+				I will be blunt: most non-schoolwork projects I've done are so small or heavily based on tutorials that they're not worth
+				mentioning in this list. Just learning programming (however fun it may be) isn't enough, so that's going to change now!
+				
+				Here is the sparse list of personal projects I'm working on:
 				<br> <br>
-				<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
+				<ul>
+				<li>Sep 2017 - expected Dec 2017: A Windows Phone list app that supports nested lists and quick item addition, unlike other Windows list apps. </li>
+					<ul>
+						<li>Languages: XAML front-end, C# back-end. Uses the Universal Windows Platform.</li>
+						<li>To-do: provide list sorting, deleting multiple checked items, exporting list to file, list sharing.
+					</ul>
+				<br>
+				<li> Oct 2017: This website! Besides looking semi-modern, it's stable against extreme zooming and rapid animation playing. </li>
+					<ul>
+						<li>Languages: JavaScript (and jQuery), HTML/CSS.</li>
+						<li>To-do: add dynamic page loading that pushes visited pages onto the browser's history stack so users can navigate with the browser front/back
+						buttons. And add more animations!</li>
+					</ul>
+				</ul>
 				<br> <br>
-				Anyways, feel free to browse around, if only to play with the animations!
+				Sparse, huh? Until now, I've spent too much time just learning from tutorials (because there really are such interesting programming
+				concepts out there).
+
+				Here is a list of future projects I plan to tackle:
+				1. A calendar app for college students on a quarter system, that includes a date lookup functionality
+				returning which week of the quarter that date is in. I actually do need this app, so I'm going to code it as soon as possible
+				while I'm still at UCLA!
+				2. Port the Windows Phone list app to Android devices.
+				
+				
 			</p>
 		</div>
 		
 		<div id="content-contact" style="display: none;">
 			<h1>Contact</h1>
+			<p> 
+				I'd love to hear from you! You can find me at...
+				<ul id="contact-links-list">
+					<li>
+						<i class="fa fa-envelope" aria-hidden="true"></i><span style="display:inline-block; width: 15px;"></span>
+						<input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input>
+					</li>
+					<li>
+						<i class="fa fa-github" aria-hidden="true"></i><span style="display:inline-block; width: 15px;"></span> 
+						<a href="https://github.com/glng7121">github.com/glng7121</a>
+					</li>
+				</ul>
+				...or just send me a message by submitting the form below. (I've always wanted to make one of these!)
+				<br> <br> <br>
+				
+				<form id="contact-form" action="https://formspree.io/glng7121@gmail.com"
+					  method="POST">
+					<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
+					<input type="text" placeholder="Your name" name="_sendername"> <br>
+					<input type="email" placeholder="Your email address" name="_replyto"> <br>
+					<textarea id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
+					<button id="btn-contact-form" type="submit"> Submit! </button>
+					<input type="hidden" name="_next" value="" />
+				</form>
+
+			</p>
+		</div>
+		
+		
+		<div id="content-resume" style="display: none;">
+			<h1>Resume</h1>
 			<p>
-				Welcome! This is my personal website, presumably for professional purposes. I definitely didn't make this to learn Javascript and JQuery animations.
+				If the pdf viewer below isn't working, you can download my resume <a href="gladys_resume.pdf" download>here</a>!
 				<br> <br>
-				<del style="font-size: 15px">What do you <i>mean</i>, this site isn't professional anymore?</del>
-				<br> <br>
-				Anyways, feel free to browse around, if only to play with the animations!
+				<iframe src="gladys_resume.pdf?#zoom=85&scrollbar=0&navpanes=0" width="1000" height="360"></iframe>
 			</p>
 		</div>
 	</div>
 	
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
 <script src="menuBtnAnimation.js"/>
 <script src="dynamicpage.js"/>
+<script src="js/slideshow.js"/>
 <script>
 	
 /*window.onload = function() {
@@ -101,7 +174,6 @@
 	SlowMo.ease
 	
 } */
-
 
 
 

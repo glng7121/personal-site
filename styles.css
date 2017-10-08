@@ -9,7 +9,7 @@
 	background: transparent;
 }
 	
-body{
+body, input, textarea {
 
 	background-color: #f9fdff;	
 	font-family: 'Raleway', sans-serif;
@@ -17,8 +17,73 @@ body{
 	height: 100%;
 }
 
+#gladys-pic {
+	border: 2px solid #085191;
+	box-shadow: 1px 3px 5px #085191;
+	margin-right: 70px;
+}
+
+#contact-links-list {
+	list-style: none;
+	margin: 10px;
+	padding: 20px;
+}
+
+#contact-links li {
+	margin-bottom: 10px;
+}
+
+#contact-form input,
+#contact-form textarea {
+	margin: 5px;
+	border: 1px solid #085191;
+	color: #085191;
+	padding: 5px;
+}
+
+#contact-form {
+	border: 1px solid #42bbc9;
+	box-shadow: 1px 3px 5px #085191;
+	width: 80%;
+	padding: 20px;
+}
+
+#btn-contact-form {
+	background-color: #fff;
+	color: #35a6b7;
+	border: 1px solid #085191;
+	font-size: 25px;
+	padding: 10px;
+	border-radius: 10px;
+	display: block;
+	margin: auto;
+}
+
+#btn-contact-form:hover{
+	background-color: #42bbc9;
+	border: 1px solid #42bbc9;
+	color: #fff;
+}
+
+#msg-contact-form {
+	width: 100%;
+	height: 100px;
+}
+
+a:link {
+	color: #42bbc9;
+}
+
+a:hover {
+	color: #085191;
+}
+
+a:visited {
+	color: #6d6df9;
+}
+
 .menuBtn {
-	text-align: center;
+	text-align: right;
 	color: #085191;
 	font-family: 'Raleway', sans-serif;
 	display: block;
@@ -27,7 +92,7 @@ body{
 	font-size: 30px;
 	padding: 10px 20px;
 	height: auto;
-	width: 220px;
+	width: 230px;
 	border: 1px solid #085191;
 	border-radius: 0px 20px 20px 0px;
 	box-shadow: 1px 4px 10px #085191;
@@ -52,13 +117,16 @@ body{
 	color: #fff;
 	font-size: 70px;
 	padding: 25px 25px;
-	text-align: center;
+	text-align: left;
 	/* border: 1px solid #085191;
 	border-radius: 15px; */
 	box-shadow: 0px 4px 10px #085191;
 	letter-spacing: 1px;
 	text-shadow: 2px 2px 5px #085191;
+	
 }
+
+
 
 footer {
 	clear: both;
@@ -93,3 +161,130 @@ footer {
 	box-shadow: 3px 3px 3px navy;  */
 	padding: 0 40px 30px 40px;
 }
+
+#header-text {
+	
+
+}
+
+.italic {
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+	
+	-webkit-transform: skewX(-10deg);
+    -moz-transform: skewX(-10deg);
+    -o-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+}
+
+
+input[type="text"] {
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+

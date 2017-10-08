@@ -1,4 +1,4 @@
-var buttonWidth = 220;
+var buttonWidth = 230;
 var newButtonWidth = buttonWidth+40;
 let selectedBtnId = "btnHome";
 
@@ -20,12 +20,16 @@ function buttonOut() {
 
 function headerOver() {
 	var header = $(this);
-	header.stop().animate({backgroundColor: "#35a6b7", letterSpacing: "4px", boxShadow: "1px 1px 1px teal"}, 150);
+	var headerText = $("#header-text");
+	headerText.addClass("italic");
+	header.stop().animate({backgroundColor: "#35a6b7", letterSpacing: "4px", wordSpacing: "15px", boxShadow: "1px 1px 1px teal"}, 150);
 }
 
 function headerOut() {
 	var header = $(this);
-	header.stop().animate({backgroundColor: "#42bbc9", letterSpacing: "1px", boxShadow: "1px 1px 1px navy"}, 150);
+	var headerText = $("#header-text");
+	headerText.removeClass("italic");
+	header.stop().animate({backgroundColor: "#42bbc9", letterSpacing: "1px", wordSpacing: "0px", boxShadow: "1px 1px 1px navy"}, 150);
 }
 
 function getContentId (btnId) {
@@ -42,13 +46,15 @@ function getContentId (btnId) {
 		case "btnContact":
 			return "content-contact";
 			break;
+		case "btnResume":
+			return "content-resume";
+		break;
 		default:
 			//inexistent button. shouldn't happen. do nothing
 	}
 }
 
 $(document).ready(function() {
-	console.log("doc ready in menuBtnAnimation.js");
 	$(".menuBtn").each(function(i) {
 			$(this).hover(buttonOver, buttonOut);
 			
@@ -72,5 +78,4 @@ $(document).ready(function() {
 		}
 	);
 	
-
 });
