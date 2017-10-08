@@ -78,4 +78,19 @@ $(document).ready(function() {
 		}
 	);
 	
+	/*//submit contact form to FormSpree using AJAX
+	var message = "";
+
+	$("#btn-contact-form").on("click", function() {
+		message = $("#contact-form").serialize();
+		$.ajax({
+			url: "//formspree.io/glng7121@gmail.com", 
+			method: "POST",
+			data: {message: message},
+			dataType: "json"
+		});
+		alert("Message was sent!");
+		return false;
+	});
+	*/
 });
