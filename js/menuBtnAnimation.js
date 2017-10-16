@@ -1,4 +1,4 @@
-var buttonWidth = 230;
+var buttonWidth = 250;
 var newButtonWidth = buttonWidth+40;
 let selectedBtnId = "btnHome";
 
@@ -54,43 +54,11 @@ function getContentId (btnId) {
 	}
 }
 
-$(document).ready(function() {
-	$(".menuBtn").each(function(i) {
-			$(this).hover(buttonOver, buttonOut);
-			
-			$(this).click(function(event) {
-				let oldContentId = getContentId(selectedBtnId);
-				let clickedBtnId = jQuery(this).attr("id");
-				let newContentId = getContentId(clickedBtnId);
-				
-				$("#"+oldContentId).stop().fadeOut( 200, function () {
-						$("#"+newContentId).stop().fadeIn(200);
-					}
-				);
-				
-				selectedBtnId = clickedBtnId;
-			} );
-		}
-	);
-		
-	$("#header").each(function(i) {
-			$(this).hover(headerOver, headerOut);
-		}
-	);
-	
-	/*//submit contact form to FormSpree using AJAX
-	var message = "";
-
-	$("#btn-contact-form").on("click", function() {
-		message = $("#contact-form").serialize();
-		$.ajax({
-			url: "//formspree.io/glng7121@gmail.com", 
-			method: "POST",
-			data: {message: message},
-			dataType: "json"
-		});
-		alert("Message was sent!");
-		return false;
-	});
-	*/
-});
+function updateMenuPos() {
+	let menuCoord = document.getElementById("menu").getBoundingClientRect();
+	/*if (menuCoord.top < 0) {
+		menu.style.top = 50+"px";
+	}
+	console.log("menu window-top (JS): "+menuCoord.top);
+	console.log("menu position-top (jquery): "+$("#menu").position().top); */
+}
