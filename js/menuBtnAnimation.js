@@ -1,11 +1,15 @@
-var buttonWidth = 250;
-var newButtonWidth = buttonWidth+40;
 let selectedBtnId = "btnHome";
+
+function updateMenuBtnWidth(width) {
+	buttonWidth = width;
+	newButtonWidth = width+40;
+	console.log("new menu btn width: "+buttonWidth);
+}
 
 function buttonOver() {
 	var button = $(this);
 	//TweenMax.to(button, 0.2, {css: {scaleX: 0.8}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#42bbc9", color: "#fff", width: newButtonWidth+"px"}, 150);
+	button.stop().animate({backgroundColor: "#42bbc9", color: "#fff", width: "78%"}, 150);
 	//document.getElementById("buttons").style.backgroundColor = "#000";
 	//document.getElementById("buttonLabels").style.color = "#fff";
 }
@@ -13,7 +17,7 @@ function buttonOver() {
 function buttonOut() {
 	var button = $(this);
 	//TweenMax.to(button, 0.2, {css: {scaleX: 1}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#fff", color: "#085191", width: buttonWidth+"px"}, 150);
+	button.stop().animate({backgroundColor: "#fff", color: "#085191", width: "67%"}, 150);
 	//document.getElementById("buttons").style.backgroundColor = "#fff";
 	//document.getElementById("buttonLabels").style.color = "#000";
 }

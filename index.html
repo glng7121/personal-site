@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
+
+
+
 <head>
 	<link rel="icon" href="icon_titleBar.png" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gladys Ng's site</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    
+	
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="styles.css" rel="stylesheet">
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<!--<script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script> -->
-	<script src="js/modernizr.js"></script>
-	
-	<script type="text/javascript" src="js/jquery.pjax.js"></script>
-	
+
 	<script type="text/javascript" src="js/greensock/plugins/CSSPlugin.min.js"></script>
 	<!--- Be sure to load EasePack if you want to use a specific ease -->
 	<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
@@ -22,208 +24,222 @@
 	
 	<script type="text/javascript" src="js/header-animation.js"></script>
 	<script type="text/javascript" src="js/menuBtnAnimation.js"></script>
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-
-<div id="header">
-	<div id="header-text"><b>Welcome to Gladys' website!</b></div>
-	
-</div>
-
-<div id="belowHeader">
-	<div id="menu">
-		<button class="menuBtn" id="btnHome"> <i class="fa fa-home" aria-hidden="true"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
-		<button class="menuBtn" id="btnAbout"> <i class="fa fa-user" aria-hidden="true"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
-		<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card" aria-hidden="true"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
-		<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks" aria-hidden="true"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
-		<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle" aria-hidden="true"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
+	<div id="header">
+		<div id="header-text"><b>Welcome to Gladys' website!</b></div>
 	</div>
-	<div id="mainContent"> 
-		<div id="content-home">
-			<h1>Home</h1>
-			<p>
-				Welcome! This is my personal website, presumably for professional purposes. (It's actually my JavaScript playground.)
-				<br> <br>
-				Anyways, feel free to browse around!
-			</p>
-		</div>
-		
-		<div id="content-about" style="display: none;">
-			<h1>About me</h1>
-			<p>
-				<img id="gladys-pic" src="gladys_pic.jpg" width="25%" align="left" alt="A picture of me trying to be cool. Maybe it's for the best that you can't see it..."/>
-				Hi! Glad you made it.
-				<br><br>
-				Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
-				<br><br>
-				I'm a third year UCLA computer science major who loves to learn, especially about the tiny ingenuities in programming. Besides coding, I enjoy drawing, good food, bad jokes, and anything that makes me think!
-				<br><br>
-				If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
-			</p>
-		</div>
-		
-		<div id="content-projects" style="display: none;">
-			<h1>Projects</h1>
-			<p> 
-				<ul class="projectList"> <h2>Personal Projects</h2>
-					<li>Sept. 2017 - present (expected Dec. 2017): A Windows Phone shopping list app.
-						<ul class="projectDescrip">
-							<li>Supports N-nested categories and quick item addition, unlike other Windows list apps.</li>
-							<li>Languages: XAML frontend, C# backend. Uses the Universal Windows Platform.</li>
-							<li> 
-								<ul class="projectDescrip"> To-do:
-									<li>Revamp app to use data-binding.</li>
-									<li>Save app state.</li>
-									<li>List sortability.</li>
-									<li>Delete all checked items.</li>
-									<li>Export list to file/list sharing.</li>
-									<li>Finally...port to Android.</li>
+
+	<table id="belowHeader">
+		<tr>
+			<td id="menu">
+				<button class="menuBtn" id="btnHome"> <i class="fa fa-home" aria-hidden="true"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
+				<button class="menuBtn" id="btnAbout"> <i class="fa fa-user" aria-hidden="true"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
+				<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card" aria-hidden="true"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
+				<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks" aria-hidden="true"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
+				<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle" aria-hidden="true"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
+			</td>
+			<td id="mainContent"> 
+				<div id="content-home">
+					<h1>Home</h1>
+					<p>
+						Welcome! This is my personal website, presumably for professional purposes. (It's actually my JavaScript playground.)
+						<br> <br>
+						Anyways, feel free to browse around!
+					</p>
+				</div>
+				
+				<div id="content-about" style="display: none;">
+					<h1>About me</h1>
+					<p>
+						<img id="gladys-pic" src="gladys_pic.jpg" width="25%" align="left" alt="A picture of me trying to be cool. Maybe it's for the best that you can't see it..."/>
+						Hi! Glad you made it.
+						<br><br>
+						Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
+						<br><br>
+						I'm a third year UCLA computer science major who loves to learn, especially about the tiny ingenuities in programming. Besides coding, I enjoy drawing, good food, bad jokes, and anything that makes me think!
+						<br><br>
+						If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
+					</p>
+				</div>
+				
+				<div id="content-projects" style="display: none;">
+					<h1>Projects</h1>
+					<p> 
+						<ul class="projectList"> <h2>Personal Projects</h2>
+							<li>Sept. 2017 - present (expected Dec. 2017): A Windows Phone shopping list app.
+								<ul class="projectDescrip">
+									<li>Supports N-nested categories and quick item addition, unlike other Windows list apps.</li>
+									<li>Language: XAML frontend, C# backend. Uses the Universal Windows Platform.</li>
+									<li> 
+										<ul class="projectDescrip"> To-do:
+											<li>Revamp app to use data-binding.</li>
+											<li>Save app state.</li>
+											<li>List sortability.</li>
+											<li>Delete all checked items.</li>
+											<li>Export list to file/list sharing.</li>
+											<li>Finally...port to Android.</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li> Oct. 2017 - present: This website!
+								<ul class="projectList">
+									<li>Experimenting with stable animations and a contact form.</li>
+									<li>Language: JavaScript (+jQuery), HTML/CSS.</li>
+									<li>
+										<ul class="projectDescrip"> To-do:
+											<li>Auto-scrolling button menu.</li>
+											<li>Push visited pages onto browser's history stack so users can navigate page history with front/back buttons.</li>
+											<li>Backend server+input checks for Contact form.</li>
+											<li>Replace jQuery animations with GreenSock for faster animations.</li>
+										</ul>
+									</li>
+								</ul>
+							 </li>
+						</ul>
+						<br> <br>
+						
+						<ul class="projectList"> <h2>Coursework Projects</h2>
+							<li>May 2017: Reliable data transfer protocol for a server and client.
+								<ul class="projectDescrip">
+									<li>Assignment for Introduction to Computer Networking course (CS118 at UCLA).</li>
+									<li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
+									<li>Language: C++; tested with Bash.</li>
+								</ul>
+							</li>
+							
+							<li>Jan. 2017: Simple bash shell imitation.
+								<ul class="projectDescrip">
+									<li>Assignment for Operating Systems Principles course (CS111 at UCLA).</li>
+									<li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection.</li>
+									<li>Language: C; tested with Bash.</li>
+								</ul>
+							</li>
+							
+							<li>Oct. 2016: "comm" shell command imitation.
+								<ul class="projectDescrip">
+									<li>Assignment for Software Construction Laboratory course (CS35L at UCLA).</li>
+									<li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec.</a></li>
+									<li>Language: Python; tested with Bash.</li>
 								</ul>
 							</li>
 						</ul>
-					</li>
-					<br>
-					<li> Oct. 2017 - present: This website!
-						<ul class="projectList">
-							<li>Experimenting with stable animations and a contact form.</li>
-							<li>Languages: JavaScript (+jQuery), HTML/CSS.</li>
+						<br> <br>
+						
+						<ul class="projectList"> <h2>Future Project Ideas</h2>
+							<li> Calendar app for college students on the quarter system.
+								<ul class="projectDescrip">
+									<li>Most important feature: date lookup functionality that returns which week of the quarter that date is in. (I need this!!)</li>
+									<li>Behaves like a normal calendar that can store appointments/schedules. I'm sure there's a calendar API I can use.</li>
+									<li>Want to make for Android, Windows Phones.</li>
+								</ul>
+							</li>
+						</ul>
+
+					</p>
+				</div>
+				
+				<div id="content-contact" style="display: none;">
+					<h1>Contact</h1>
+					<p> 
+						I'd love to hear from you! You can find me at
+						<ul id="contact-links-list">
 							<li>
-								<ul class="projectDescrip"> To-do:
-									<li>Auto-scrolling button menu.</li>
-									<li>Push visited pages onto browser's history stack so users can navigate page history with front/back buttons.</li>
-									<li>Backend server+input checks for Contact form.</li>
-									<li>Replace jQuery animations with GreenSock for faster animations.</li>
-								</ul>
+								<i class="fa fa-envelope" aria-hidden="true"></i><span style="display:inline-block; width: 11px;"></span>
+								<input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input>
+							</li>
+							<li>
+								<i class="fa fa-github" aria-hidden="true"></i><span style="display:inline-block; width: 15px;"></span> 
+								<a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a>
 							</li>
 						</ul>
-					 </li>
-				</ul>
-				<br> <br>
-				
-				<ul class="projectList"> <h2>Coursework Projects</h2>
-					<li>May 2017: Reliable data transfer protocol for a server and client.
-						<ul class="projectDescrip">
-							<li>Assignment for Introduction to Computer Networking class (CS118 at UCLA).</li>
-							<li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
-							<li>Languages: C++; tested with Bash.</li>
-						</ul>
-					</li>
-				</ul>
-				<br> <br>
-				
-				<ul class="projectList"> <h2>Future Project Ideas</h2>
-					<li> Calendar app for college students on the quarter system.
-						<ul class="projectDescrip">
-							<li>Most important feature: date lookup functionality that returns which week of the quarter that date is in. (I need this!!)</li>
-							<li>Behaves like a normal calendar that can store appointments/schedules. I'm sure there's a calendar API I can use.</li>
-							<li>Want to make for Android, Windows Phone.</li>
-						</ul>
-					</li>
-				</ul>
+						Alternatively, you can send me a message using the form below, but your message will be relayed to a third party server called Formspree before reaching me. 
+						I trust Formspree, but if you don't, don't use the form. Sorry! Soon I will replace Formspree with my own backend server.
+						<br> <br> <br>
+						
+						<form id="contact-form" target="_blank" method="POST">
+							<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
+							<input type="text" placeholder="Your name" name="_sendername"> <br>
+							<input type="email" placeholder="Your email address" name="_replyto"> <br>
+							<textarea id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
+							All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
+							<button id="btn-contact-form" type="submit"> Submit! </button>
+						</form>
+						
+						
 
-			</p>
-		</div>
+					</p>
+				</div>
+				
+				
+				<div id="content-resume" style="display: none;">
+					<h1>Resume</h1>
+					<p>
+						If the pdf viewer below isn't working, you can open my resume in another tab <a href="gladys_resume.pdf" target="_blank">here</a>!
+						<br> <br>
+						<iframe src="gladys_resume.pdf?#zoom=85&scrollbar=0&navpanes=0" width="1000" height="360"></iframe>
+					</p>
+				</div>
+			</td>
+		</tr>
 		
-		<div id="content-contact" style="display: none;">
-			<h1>Contact</h1>
-			<p> 
-				I'd love to hear from you! You can find me at
-				<ul id="contact-links-list">
-					<li>
-						<i class="fa fa-envelope" aria-hidden="true"></i><span style="display:inline-block; width: 11px;"></span>
-						<input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input>
-					</li>
-					<li>
-						<i class="fa fa-github" aria-hidden="true"></i><span style="display:inline-block; width: 15px;"></span> 
-						<a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a>
-					</li>
-				</ul>
-				Alternatively, you can send me a message using the form below, but your message will be relayed to a third party server called Formspree before reaching me. 
-				I trust Formspree, but if you don't, don't use the form. Sorry! Soon I will replace Formspree with my own backend server.
-				<br> <br> <br>
-				
-				<form id="contact-form" target="_blank" method="POST">
-					<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-					<input type="text" placeholder="Your name" name="_sendername"> <br>
-					<input type="email" placeholder="Your email address" name="_replyto"> <br>
-					<textarea id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
-					All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
-					<button id="btn-contact-form" type="submit"> Submit! </button>
-				</form>
-				
-				
+	</table>
 
-			</p>
-		</div>
+	<script>
 		
-		
-		<div id="content-resume" style="display: none;">
-			<h1>Resume</h1>
-			<p>
-				If the pdf viewer below isn't working, you can download my resume <a href="gladys_resume.pdf">here</a>!
-				<br> <br>
-				<iframe src="gladys_resume.pdf?#zoom=85&scrollbar=0&navpanes=0" width="1000" height="360"></iframe>
-			</p>
-		</div>
-	</div>
-	
-</div>
-
-
-
-<script>
-	
-	$(document).ready(function() {
-		$(".menuBtn").each(function(i) {
-				$(this).hover(buttonOver, buttonOut);
-				
-				$(this).click(function(event) {
-					let oldContentId = getContentId(selectedBtnId);
-					let clickedBtnId = jQuery(this).attr("id");
-					let newContentId = getContentId(clickedBtnId);
-					
-					$("#"+oldContentId).stop().fadeOut( 200, function () {
-							$("#"+newContentId).stop().fadeIn(200);
-						}
-					);
-					
-					selectedBtnId = clickedBtnId;
-				} );
-			}
-		);
+		$(document).ready(function() {
 			
-		$("#header").each(function(i) {
-				$(this).hover(headerOver, headerOut);
-			}
-		);
-		
-		let contactForm = document.getElementById("contact-form");
-		contactForm.setAttribute("action", "https://formspree.io/"+"gl"+"ng"+"71"+"21"+"@"+"gm"+"ail"+"."+"c"+"om");
-		
-		$(window).scroll(updateMenuPos);
-		/*//submit contact form to FormSpree using AJAX
-		var message = "";
+			$(".menuBtn").each(function(i) {
+					$(this).hover(buttonOver, buttonOut);
+					
+					$(this).click(function(event) {
+						let oldContentId = getContentId(selectedBtnId);
+						let clickedBtnId = jQuery(this).attr("id");
+						let newContentId = getContentId(clickedBtnId);
+						
+						$("#"+oldContentId).stop().fadeOut( 200, function () {
+								$("#"+newContentId).stop().fadeIn(200);
+							}
+						);
+						
+						selectedBtnId = clickedBtnId;
+					} );
+				}
+			);
+				
+			$("#header").each(function(i) {
+					$(this).hover(headerOver, headerOut);
+				}
+			);
+			
+			let contactForm = document.getElementById("contact-form");
+			contactForm.setAttribute("action", "https://formspree.io/"+"gl"+"ng"+"71"+"21"+"@"+"gm"+"ail"+"."+"c"+"om");
+			
+			$(window).scroll(updateMenuPos);
+			/*//submit contact form to FormSpree using AJAX
+			var message = "";
 
-		$("#btn-contact-form").on("click", function() {
-			message = $("#contact-form").serialize();
-			$.ajax({
-				url: "//formspree.io/glng7121@gmail.com", 
-				method: "POST",
-				data: {message: message},
-				dataType: "json"
+			$("#btn-contact-form").on("click", function() {
+				message = $("#contact-form").serialize();
+				$.ajax({
+					url: "//formspree.io/glng7121@gmail.com", 
+					method: "POST",
+					data: {message: message},
+					dataType: "json"
+				});
+				alert("Message was sent!");
+				return false;
 			});
-			alert("Message was sent!");
-			return false;
+			*/
 		});
-		*/
-	});
 
 
 
-</script>
-
+	</script>
 </body>
+
+
+
 </html>
