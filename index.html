@@ -158,9 +158,10 @@
 							</li>
 						</ul>
 						Alternatively, you can send me a message using the form below, but your message will be relayed to a third party server called Formspree before reaching me. 
-						I trust Formspree, but if you don't, don't use the form. Sorry! Soon I will replace Formspree with my own backend server.
+						I trust Formspree, but if you don't, don't use the form. Sorry! I'm currently researching alternatives.
 						<br> <br> <br>
 						
+						<!--
 						<form id="contact-form" target="_blank" method="POST">
 							<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
 							<input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
@@ -169,9 +170,28 @@
 							All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
 							<button id="btn-contact-form" type="submit"> Submit! </button>
 						</form>
+						-->
+						
+												<!-- 
+							contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
+							basically, submits a google form with inputs from the contact form, and hides the google form redirect.
+							https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&
+							entry.391896772=junkSenderName&
+entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
+						-->
 						
 						
 
+						<form id="contact-form" enctype="text/plain" target="hidden_iframe" method="GET" action="https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/formResponse?">
+							<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
+							<input style="width: 50%;" type="text" placeholder="Your name" name="entry.391896772" > <br>
+							<input style="width: 50%;" type="text" placeholder="Your email address" name="entry.766027190" > <br>
+							<textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="entry.1753659212"></textarea> <br> <br>
+							<button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
+						</form>
+						
+						<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+					
 					</p>
 				</div>
 				
@@ -216,8 +236,21 @@
 				}
 			);
 			
-			let contactForm = document.getElementById("contact-form");
-			contactForm.setAttribute("action", "https://formspree.io/"+"gl"+"ng"+"71"+"21"+"@"+"gm"+"ail"+"."+"c"+"om");
+			<!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
+			
+			$("#contact-form").submit(function () {
+			    $.ajax({
+					data: $(this).serialize(),
+					type: $(this).attr('method'),
+					url: $(this).attr('action'),
+					success: function(response) { // on success..
+						$("#contact-form").fadeOut(1000);
+						//$("#contact-form").prepend("Successfully submitted. Thank you!");
+					}
+				});
+				return false;
+			});
+			
 			
 			$(window).scroll(updateMenuPos);
 			/*//submit contact form to FormSpree using AJAX

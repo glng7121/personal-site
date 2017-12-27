@@ -8,7 +8,7 @@
 	vertical-align: baseline;
 	background: transparent;
 }
-	
+
 body, input, textarea {
 
 	background-color: #f9fdff;	
@@ -103,16 +103,6 @@ a:visited {
 	box-shadow: 1px 4px 10px #085191;
 }
 
-#header-decoration {
-	position: absolute;
-	bottom: 0;
-	font-size: 1.2em;
-	color: #085191;
-	background-color: #fff;
-	width: 100%;
-	margin-top: 20px;
-	padding: 20px;
-}
 
 #header, footer {
 	position: relative;
@@ -120,7 +110,7 @@ a:visited {
 	background-color: #fff; */
 	background-color: #42bbc9;
 	color: #fff;
-	font-size: 4.5em;
+	font-size: 5vw;
 	padding: 25px 25px;
 	text-align: left;
 	/* border: 1px solid #085191;
@@ -168,16 +158,18 @@ footer {
 
 
 #mainContent {
+	height: 65%;
+	width: 72%;
 	position: absolute;
 	float: right;
+	margin-left: 20%;
 	margin-top: 3%;
-	margin-left: 18%;
 	font-size: 1.25em;
 	/*border: 1px solid #085191;
-	border-radius: 15px;
 	max-height: 400px;
-	box-shadow: 3px 3px 3px navy;  */
-	padding: 0 40px 30px 40px;
+	border-radius: 30px;
+	box-shadow: 0 0 5px #2693a0; 
+	padding: 0 40px 30px 40px;*/
 }
 
 .italic {
