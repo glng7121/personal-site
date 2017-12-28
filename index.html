@@ -12,6 +12,7 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
 	<link href="styles.css" rel="stylesheet">
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -28,17 +29,17 @@
 
 <body>
 	<div id="header">
-		<div id="header-text"><b>Welcome to Gladys' website!</b></div>
+		<div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
 	</div>
 
 	<table id="belowHeader">
 		<tr>
 			<td id="menu">
-				<button class="menuBtn" id="btnHome"> <i class="fa fa-home" aria-hidden="true"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
-				<button class="menuBtn" id="btnAbout"> <i class="fa fa-user" aria-hidden="true"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
-				<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card" aria-hidden="true"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
-				<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks" aria-hidden="true"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
-				<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle" aria-hidden="true"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
+				<button class="menuBtn" id="btnHome"> <i class="fa fa-home"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
+				<button class="menuBtn" id="btnAbout"> <i class="fa fa-user"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
+				<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
+				<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
+				<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
 			</td>
 			<td id="mainContent"> 
 				<div id="content-home">
@@ -147,16 +148,16 @@
 					<h1>Contact</h1>
 					<p> 
 						I'd love to hear from you! You can find me at
-						<ul id="contact-links-list">
-							<li>
-								<i class="fa fa-envelope" aria-hidden="true"></i><span style="display:inline-block; width: 11px;"></span>
-								<input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input>
-							</li>
-							<li>
-								<i class="fa fa-github" aria-hidden="true"></i><span style="display:inline-block; width: 15px;"></span> 
-								<a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a>
-							</li>
-						</ul>
+						<table id="contact-links-list">
+							<tr>
+								<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+								<td><input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input></td>
+							</tr>
+							<tr>
+								<td><i class="fab fa-github"></i></td>
+								<td><a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a></td>
+							</tr>
+						</table>
 						Alternatively, you can send me a message using the form below, but your message will be relayed to a third party server called Formspree before reaching me. 
 						I trust Formspree, but if you don't, don't use the form. Sorry! I'm currently researching alternatives.
 						<br> <br> <br>
