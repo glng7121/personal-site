@@ -5,6 +5,9 @@
 
 <head>
 	<link rel="icon" href="icon_titleBar.png" />
+	
+	<link rel="stylesheet" href="https://www.gstatic.com/_/freebird/_/ss/k=freebird.v.-vp5nxb3t3ehr.L.W.O/d=1/rs=AMjVe6joLxw7SyTTK0LYjogsAcuR-gERxw" data-id="_cl">
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gladys Ng's site</title>
@@ -158,8 +161,7 @@
 								<td><a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a></td>
 							</tr>
 						</table>
-						Alternatively, you can send me a message using the form below, but your message will be relayed to a third party server called Formspree before reaching me. 
-						I trust Formspree, but if you don't, don't use the form. Sorry! I'm currently researching alternatives.
+						Alternatively, you can send me a message using the form below.
 						<br> <br> <br>
 						
 						<!--
@@ -176,20 +178,17 @@
 												<!-- 
 							contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
 							basically, submits a google form with inputs from the contact form, and hides the google form redirect.
-							https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&
-							entry.391896772=junkSenderName&
-entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
+							https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&entry.391896772=junkSenderName&entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
 						-->
 						
-						
-						<form id="contact-form" enctype="text/plain" target="hidden_iframe" method="GET" action="https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/formResponse?">
+
+						<form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
 							<h2 style="margin: 0px 0px 10px 0px; text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-							<input style="width: 30%;" type="text" placeholder="Your name" name="entry.391896772"> <br>
-							<input style="width: 40%;" type="text" placeholder="Your email address" name="entry.766027190"> <br>
-							<textarea id="msg-contact-form" placeholder="Your message" name="entry.1753659212"></textarea> <br> <br>
+							<input style="min-width: 30%;" type="text" placeholder="Your name" name="senderName"> <br>
+							<input style="min-width: 40%;" type="text" placeholder="Your email address" name="senderAddr"> <br>
+							<textarea id="msg-contact-form" placeholder="Your message" name="msg"></textarea> <br> <br>
 							<button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
 						</form>
-						<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 					
 					</p>
 				</div>
@@ -200,7 +199,7 @@ entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
 					<p>
 						If the pdf viewer below isn't working, you can open my resume in another tab <a href="gladys_resume.pdf" target="_blank">here</a>!
 						<br> <br>
-						<iframe src="gladys_resume.pdf?scrollbar=0&navpanes=0" width="100%" height="400em"></iframe>
+						<iframe src="gladys_resume.pdf?#zoom=100&scrollbar=0&navpanes=0" width="100%" height="400em"></iframe>
 					</p>
 				</div>
 			</td>
@@ -209,8 +208,22 @@ entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
 	</table>
 
 	<script>
+function getScrollBarWidth () {
+    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+    $outer.remove();
+    return 100.0 - widthWithScroll;
+};
+
+var checkScrollBars = function(barWidth) {
+	var newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
+	$("#menu").css({paddingRight: newPaddingRight+"px"});
+}
 		
 		$(document).ready(function() {
+			var barWidth = getScrollBarWidth();
+			
+			checkScrollBars(barWidth);
 			
 			$(".menuBtn").each(function(i) {
 					$(this).hover(buttonOver, buttonOut);
@@ -220,10 +233,22 @@ entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
 						let clickedBtnId = jQuery(this).attr("id");
 						let newContentId = getContentId(clickedBtnId);
 						
+						/*
 						$("#"+oldContentId).stop().fadeOut( 200, function () {
-								$("#"+newContentId).stop().fadeIn(200);
+								$("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
 							}
 						);
+						*/
+						$("#"+oldContentId).stop().fadeOut(200);
+						$("#"+oldContentId).promise().done(function() {
+							$("#"+newContentId).stop().fadeIn(200);
+							$("#"+newContentId).promise().done(function() {
+								let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
+								let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
+								//$("#menu").css({paddingRight: newPaddingRight+"px"});
+								//$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
+							});
+						})
 						
 						selectedBtnId = clickedBtnId;
 					} );
@@ -237,16 +262,21 @@ entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
 			
 			<!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
 			
-			$("#contact-form").submit(function () {
-			    $.ajax({
-					data: $(this).serialize(),
+			$("#contact-form").submit(function () {				
+				$.ajax({
+					data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
 					type: $(this).attr('method'),
 					url: $(this).attr('action'),
-					success: function(response) { // on success..
-						$("#contact-form").fadeOut(1000);
-						//$("#contact-form").prepend("Successfully submitted. Thank you!");
+					dataType: "jsonp",
+					success: function(data, status, jqXHR) {
+						alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
+						$("#contact-form")[0].reset();
+					},
+					error: function(jqXHR, status, errorThrown) {
+						alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
 					}
 				});
+
 				return false;
 			});
 			

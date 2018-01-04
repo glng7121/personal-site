@@ -9,7 +9,7 @@ function updateMenuBtnWidth(width) {
 function buttonOver() {
 	var button = $(this);
 	//TweenMax.to(button, 0.2, {css: {scaleX: 0.8}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#42bbc9", color: "#fff", width: "78%"}, 150);
+	button.stop().animate({backgroundColor: "#42bbc9", color: "#fff", width: "110%"}, 150);
 	//document.getElementById("buttons").style.backgroundColor = "#000";
 	//document.getElementById("buttonLabels").style.color = "#fff";
 }
@@ -17,7 +17,7 @@ function buttonOver() {
 function buttonOut() {
 	var button = $(this);
 	//TweenMax.to(button, 0.2, {css: {scaleX: 1}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#fff", color: "#085191", width: "67%"}, 150);
+	button.stop().animate({backgroundColor: "#fff", color: "#085191", width: "100%"}, 150);
 	//document.getElementById("buttons").style.backgroundColor = "#fff";
 	//document.getElementById("buttonLabels").style.color = "#000";
 }
