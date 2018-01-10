@@ -38,7 +38,7 @@ body, input, textarea {
 #contact-form {
 	border: 1px solid #42bbc9;
 	box-shadow: 1px 3px 5px #085191;
-	width: 80%;
+	width: 60%;
 	padding: 30px;
 }
 
@@ -47,6 +47,24 @@ body, input, textarea {
 	border: 1px solid #085191;
 	color: #085191;
 	margin-top: 10px;
+}
+
+#contact-form input {
+	width: 80%;
+}
+
+#contact-form textarea {
+	width: 100%;
+}
+
+#contact-form table {
+	width: 100%;
+	margin: 5% 0%;
+}
+
+#contact-form .metainfo {
+	width: 70%;
+	padding-left: 5%;
 }
 
 #btn-contact-form {
@@ -60,17 +78,17 @@ body, input, textarea {
 	margin: auto;
 }
 
-#btn-contact-form:hover{
+#btn-contact-form:hover {
 	background-color: #42bbc9;
 	border: 1px solid #42bbc9;
 	color: #fff;
 }
 
-#btn-contact-form:active{
+#btn-contact-form:active {
 	background-color: #085191;
 	border: 1px solid black;
 	color: #fff;
-	box-shadow: 0px 2px #3c5b77;
+	box-shadow: -1px -1px black;
 	transform: translateY(1px);
 }
 
@@ -96,7 +114,6 @@ a:active {
 
 #menu {
 	width: 18%;
-	float: left;
 }
 
 .menuBtn {
@@ -133,7 +150,6 @@ a:active {
 }
 
 
-
 footer {
 	clear: both;
 	position: absolute;
@@ -163,16 +179,21 @@ footer {
 	margin: 30px 0px;
 }
 
+#belowHeader tr {
+	padding: 0px;
+}
+
+
 .projectList li {
 	margin: 10px 0px 10px 50px;
 }
 
 
 #mainContent {
-	width: 72%;
+	width: 75%;
 	position: absolute;
 	float: right;
-	margin-left: 20%;
+	margin-left: 2%;
 	margin-top: 2%;
 	margin-bottom: 3%;
 	font-size: 1.25em;

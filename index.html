@@ -183,11 +183,26 @@
 						
 
 						<form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
-							<h2 style="margin: 0px 0px 10px 0px; text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-							<input style="min-width: 30%;" type="text" placeholder="Your name" name="senderName"> <br>
-							<input style="min-width: 40%;" type="text" placeholder="Your email address" name="senderAddr"> <br>
-							<textarea id="msg-contact-form" placeholder="Your message" name="msg"></textarea> <br> <br>
-							<button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
+							<h2 style="margin: 0px; text-align: center; color: #42bbc9;">Send me a message!</h2> <br>
+							<h6 style="margin: 0px 0px 10px 0px; text-align: center;"> All fields are required. </h5>
+							
+							<table>
+								<tr>
+									<td> Your name: </td> 
+									<td class="metainfo"> <input id="name-contact-form" type="text" name="senderName"> <br> </td>
+								</tr>
+								<tr>
+									<td> Your email address: </td>
+									<td class="metainfo"> <input id="email-contact-form" type="text" name="senderAddr"> <br> </td>
+								</tr>
+								<tr>
+									<td colspan="2"> <br> Your message: </td>
+								</tr>
+								<tr>
+									<td colspan="2"> <textarea id="msg-contact-form" name="msg"></textarea> </td>
+								</tr>
+							</table>
+								<button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
 						</form>
 					
 					</p>
@@ -218,6 +233,24 @@ function getScrollBarWidth () {
 var checkScrollBars = function(barWidth) {
 	var newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
 	$("#menu").css({paddingRight: newPaddingRight+"px"});
+}
+
+function checkFormValid () {
+	var isNameValid = true, isEmailValid = true, isMsgValid = true;
+	
+	if (!$("#name-contact-form").val()) {
+		isNameValid = false;
+	}
+	
+	if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
+		isEmailValid = false;
+	}
+	
+	if (!$("#msg-contact-form").val()) {
+		isMsgValid = false;
+	}
+	
+	return isNameValid && isEmailValid && isMsgValid;
 }
 		
 		$(document).ready(function() {
@@ -262,21 +295,25 @@ var checkScrollBars = function(barWidth) {
 			
 			<!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
 			
-			$("#contact-form").submit(function () {				
-				$.ajax({
-					data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
-					type: $(this).attr('method'),
-					url: $(this).attr('action'),
-					dataType: "jsonp",
-					success: function(data, status, jqXHR) {
-						alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
-						$("#contact-form")[0].reset();
-					},
-					error: function(jqXHR, status, errorThrown) {
-						alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
-					}
-				});
-
+			$("#contact-form").submit(function () {
+				if (checkFormValid()) {
+					$.ajax({
+						data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
+						type: $(this).attr('method'),
+						url: $(this).attr('action'),
+						dataType: "jsonp",
+						success: function(data, status, jqXHR) {
+							alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
+							$("#contact-form")[0].reset();
+						},
+						error: function(jqXHR, status, errorThrown) {
+							alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
+						}
+					});
+				}
+				else {
+					alert("Error: one or more fields of the form are invalid.");
+				}
 				return false;
 			});
 			
