@@ -10,7 +10,7 @@
 }
 
 body, input, textarea {
-
+    overflow: scroll;
 	background-color: #f9fdff;	
 	font-family: 'Raleway', sans-serif;
 	color: #085191;
@@ -55,6 +55,7 @@ body, input, textarea {
 
 #contact-form textarea {
 	width: 100%;
+    overflow: auto;
 }
 
 #contact-form table {
@@ -111,6 +112,16 @@ a:active {
 	color: black;
 }
 
+.overlay {
+    background: gray;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    display: none;
+}
 
 #menu {
 	width: 18%;
@@ -120,7 +131,8 @@ a:active {
 	text-align: right;
 	color: #085191;
 	font-family: 'Raleway', sans-serif;
-	display: block;
+	display: flex;
+    justify-content: space-between;
 	position: relative;
 	width: 100%;
 	background-color: #fff;
@@ -131,6 +143,11 @@ a:active {
 	box-shadow: 1px 4px 10px #085191;
 }
 
+#menu_mobile_btn {
+    font-size: 4em;
+    margin: 15%;
+    color: #085191;
+}
 
 #header, footer {
 	position: relative;

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
 	<link rel="icon" href="icon_titleBar.png" />
 	
@@ -38,19 +36,28 @@
 	<table id="belowHeader">
 		<tr>
 			<td id="menu">
-				<button class="menuBtn" id="btnHome"> <i class="fa fa-home"></i> <span style="display:inline-block; width: 59px;"></span> Home  </button>
-				<button class="menuBtn" id="btnAbout"> <i class="fa fa-user"></i> <span style="display:inline-block; width: 10px;"></span> About me</button>
-				<button class="menuBtn" id="btnResume"> <i class="fa fa-id-card"></i> <span style="display:inline-block; width: 24px;"></span> Resume </button>
-				<button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks"></i> <span style="display:inline-block; width: 30px;"></span> Projects </button>
-				<button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle"></i> <span style="display:inline-block; width: 35px;"></span> Contact </button>
+                    <!--<div class="overlay"> -->
+                        <div id="menu_desktop">
+                            <button class="menuBtn" id="btnHome"><i class="fa fa-home"></i> Home </button>
+                            <button class="menuBtn" id="btnAbout"> <i class="fa fa-user"></i> About me </button>
+                            <button class="menuBtn" id="btnResume"> <i class="fa fa-id-card"></i> Resume </button>
+                            <button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks"></i> Projects </button>
+                            <button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle"></i> Contact </button>
+                        </div>
+                    <!-- </div>-->
+
+                    <div id="menu_mobile">
+                        <button id="menu_mobile_btn" style="display: none;"><i class="fas fa-bars"></i>
+                        </button>
+                    </div>
 			</td>
 			<td id="mainContent"> 
 				<div id="content-home">
 					<h1>Home</h1>
 					<p>
-						Welcome! This is my personal website, presumably for professional purposes. (It's actually my JavaScript playground!)
+						Welcome! This is my personal website, presumably for professional purposes. (I'm actually just trying to learn how to write a decent website.)
 						<br> <br>
-						Anyways, feel free to browse around! If you're curious, <a href="https://github.com/glng7121/personal-site">here</a> is the GitHub repository for this site.
+						Anyways, feel free to look around! If you're curious, <a href="https://github.com/glng7121/personal-site">here</a> is the GitHub repository for this site.
 					</p>
 				</div>
 				
@@ -62,7 +69,7 @@
 						<br><br>
 						Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
 						<br><br>
-						I'm a third year UCLA computer science major who loves to learn, especially about the tiny ingenuities in programming. Besides coding, I enjoy drawing, good food, bad jokes, and anything that makes me think!
+						I'm a fourth year UCLA computer science major who apparently likes bad jokes...
 						<br><br>
 						If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
 					</p>
@@ -71,48 +78,12 @@
 				<div id="content-projects" style="display: none;">
 					<h1>Projects</h1>
 					<p> 
-						<ul class="projectList"> <h2>Personal Projects</h2>
-							<li>Sept. 2017 - present (expected Dec. 2017): A Windows Phone shopping list app.
-								<ul class="projectDescrip">
-									<li>Supports N-nested categories and quick item addition, unlike other Windows list apps.</li>
-									<li>Language: XAML frontend, C# backend. Uses the Universal Windows Platform.</li>
-									<li> 
-										<ul class="projectDescrip"> To-do:
-											<li>Revamp app to use data-binding.</li>
-											<li>Save app state.</li>
-											<li>List sortability.</li>
-											<li>Delete all checked items.</li>
-											<li>Export list to file/list sharing.</li>
-											<li>Finally...port to Android.</li>
-										</ul>
-									</li>
-									<li><a href="https://github.com/glng7121/list-app-wp">Click here for the GitHub repository.</a></li>
-								</ul>
-							</li>
-							<li> Oct. 2017 - present: This website!
-								<ul class="projectList">
-									<li>Experimenting with stable animations and a contact form.</li>
-									<li>Language: JavaScript (+jQuery), HTML/CSS.</li>
-									<li>
-										<ul class="projectDescrip"> To-do:
-											<li>Auto-scrolling button menu.</li>
-											<li>Push visited pages onto browser's history stack so users can navigate page history with front/back buttons.</li>
-											<li>Backend server+input checks for Contact form.</li>
-											<li>Replace jQuery animations with GreenSock for faster animations.</li>
-										</ul>
-									</li>
-									<li><a href="https://github.com/glng7121/personal-site">Click here for the GitHub repository.</a></li>
-								</ul>
-							 </li>
-						</ul>
-						<br> <br>
-						
 						<ul class="projectList"> <h2>Coursework Projects</h2>
 							<li>May 2017: Reliable data transfer protocol for a server and client.
 								<ul class="projectDescrip">
 									<li>Assignment for Introduction to Computer Networking course (CS118 at UCLA).</li>
 									<li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
-									<li>Language: C++; tested with Bash.</li>
+									<li>Language: C++</li>
 								</ul>
 							</li>
 							
@@ -120,7 +91,7 @@
 								<ul class="projectDescrip">
 									<li>Assignment for Operating Systems Principles course (CS111 at UCLA).</li>
 									<li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection.</li>
-									<li>Language: C; tested with Bash.</li>
+									<li>Language: C</li>
 								</ul>
 							</li>
 							
@@ -128,22 +99,11 @@
 								<ul class="projectDescrip">
 									<li>Assignment for Software Construction Laboratory course (CS35L at UCLA).</li>
 									<li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec.</a></li>
-									<li>Language: Python; tested with Bash.</li>
+									<li>Language: Python</li>
 								</ul>
 							</li>
 						</ul>
 						<br> <br>
-						
-						<ul class="projectList"> <h2>Future Project Ideas</h2>
-							<li> Calendar app for college students on the quarter system.
-								<ul class="projectDescrip">
-									<li>Most important feature: date lookup functionality that returns which week of the quarter that date is in. (I need this!!)</li>
-									<li>Behaves like a normal calendar that can store appointments/schedules. I'm sure there's a calendar API I can use.</li>
-									<li>Want to make for Android, Windows Phones.</li>
-								</ul>
-							</li>
-						</ul>
-
 					</p>
 				</div>
 				
@@ -165,22 +125,19 @@
 						<br> <br> <br>
 						
 						<!--
-						<form id="contact-form" target="_blank" method="POST">
-							<h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-							<input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
-							<input style="width: 50%;" type="email" placeholder="Your email address" name="_replyto"> <br>
-							<textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
-							All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
-							<button id="btn-contact-form" type="submit"> Submit! </button>
-						</form>
-						-->
-						
-												<!-- 
-							contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
+                            old contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
 							basically, submits a google form with inputs from the contact form, and hides the google form redirect.
 							https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&entry.391896772=junkSenderName&entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
-						-->
-						
+                            
+                            <form id="contact-form" target="_blank" method="POST">
+                                <h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
+                                <input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
+                                <input style="width: 50%;" type="email" placeholder="Your email address" name="_replyto"> <br>
+                                <textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
+                                All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
+                                <button id="btn-contact-form" type="submit"> Submit! </button>
+                            </form>
+						-->						
 
 						<form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
 							<h2 style="margin: 0px; text-align: center; color: #42bbc9;">Send me a message!</h2> <br>
@@ -223,121 +180,133 @@
 	</table>
 
 	<script>
-function getScrollBarWidth () {
-    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
-        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
-    $outer.remove();
-    return 100.0 - widthWithScroll;
-};
+    
+    function getScrollBarWidth () {
+        var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+            widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+        $outer.remove();
+        return 100.0 - widthWithScroll;
+    };
 
-var checkScrollBars = function(barWidth) {
-	var newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
-	$("#menu").css({paddingRight: newPaddingRight+"px"});
-}
+    var checkScrollBars = function(barWidth) {
+        var newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
+        $("#menu").css({paddingRight: newPaddingRight+"px"});
+    }
 
-function checkFormValid () {
-	var isNameValid = true, isEmailValid = true, isMsgValid = true;
-	
-	if (!$("#name-contact-form").val()) {
-		isNameValid = false;
-	}
-	
-	if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
-		isEmailValid = false;
-	}
-	
-	if (!$("#msg-contact-form").val()) {
-		isMsgValid = false;
-	}
-	
-	return isNameValid && isEmailValid && isMsgValid;
-}
+    function checkFormValid () {
+        var isNameValid = true, isEmailValid = true, isMsgValid = true;
+        
+        if (!$("#name-contact-form").val()) {
+            isNameValid = false;
+        }
+        
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
+            isEmailValid = false;
+        }
+        
+        if (!$("#msg-contact-form").val()) {
+            isMsgValid = false;
+        }
+        
+        return isNameValid && isEmailValid && isMsgValid;
+    }
 		
-		$(document).ready(function() {
-			var barWidth = getScrollBarWidth();
-			
-			checkScrollBars(barWidth);
-			
-			$(".menuBtn").each(function(i) {
-					$(this).hover(buttonOver, buttonOut);
-					
-					$(this).click(function(event) {
-						let oldContentId = getContentId(selectedBtnId);
-						let clickedBtnId = jQuery(this).attr("id");
-						let newContentId = getContentId(clickedBtnId);
-						
-						/*
-						$("#"+oldContentId).stop().fadeOut( 200, function () {
-								$("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
-							}
-						);
-						*/
-						$("#"+oldContentId).stop().fadeOut(200);
-						$("#"+oldContentId).promise().done(function() {
-							$("#"+newContentId).stop().fadeIn(200);
-							$("#"+newContentId).promise().done(function() {
-								let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
-								let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
-								//$("#menu").css({paddingRight: newPaddingRight+"px"});
-								//$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
-							});
-						})
-						
-						selectedBtnId = clickedBtnId;
-					} );
-				}
-			);
-				
-			$("#header").each(function(i) {
-					$(this).hover(headerOver, headerOut);
-				}
-			);
-			
-			<!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
-			
-			$("#contact-form").submit(function () {
-				if (checkFormValid()) {
-					$.ajax({
-						data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
-						type: $(this).attr('method'),
-						url: $(this).attr('action'),
-						dataType: "jsonp",
-						success: function(data, status, jqXHR) {
-							alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
-							$("#contact-form")[0].reset();
-						},
-						error: function(jqXHR, status, errorThrown) {
-							alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
-						}
-					});
-				}
-				else {
-					alert("Error: one or more fields of the form are invalid.");
-				}
-				return false;
-			});
-			
-			
-			$(window).scroll(updateMenuPos);
-			/*//submit contact form to FormSpree using AJAX
-			var message = "";
+    $(document).ready(function() {
+        var barWidth = getScrollBarWidth();
+        
+        if (isMobile) {
+            $("#menu_desktop").hide();
+            $("#menu_mobile").show();
+        }
+        
+        checkScrollBars(barWidth);
+        
+        $(".menuBtn").each(function(i) {
+                $(this).hover(buttonOver, buttonOut);
+                
+                $(this).click(function(event) {
+                    let oldContentId = getContentId(selectedBtnId);
+                    let clickedBtnId = jQuery(this).attr("id");
+                    let newContentId = getContentId(clickedBtnId);
+                    
+                    /*
+                    $("#"+oldContentId).stop().fadeOut( 200, function () {
+                            $("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
+                        }
+                    );
+                    */
+                    
+                    $("#"+oldContentId).stop().fadeOut(200);
+                    $("#"+oldContentId).promise().done(function() {
+                        $("#"+newContentId).stop().fadeIn(200);
+                        $("#"+newContentId).promise().done(function() {
+                            let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
+                            let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
+                            //$("#menu").css({paddingRight: newPaddingRight+"px"});
+                            //$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
+                        });
+                    })
+                    
+                    selectedBtnId = clickedBtnId;
+                } );
+            }
+        );
+        
+        $("#menu_mobile_btn").click(function(event) {
+            $("#menu_mobile").hide();
+            $("#menu_desktop").show();
+            let currentBtnId = getContentId(selectedBtnId);
+            $("#"+currentBtnId).trigger('mouseenter');
+        });
+            
+        $("#header").each(function(i) {
+                if (!isMobile)
+                    $(this).hover(headerOver, headerOut);
+            }
+        );
+        
+        <!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
+        
+        $("#contact-form").submit(function () {
+            if (checkFormValid()) {
+                $.ajax({
+                    data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    dataType: "jsonp",
+                    success: function(data, status, jqXHR) {
+                        alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
+                        $("#contact-form")[0].reset();
+                    },
+                    error: function(jqXHR, status, errorThrown) {
+                        alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
+                    }
+                });
+            }
+            else {
+                alert("Error: one or more fields of the form are invalid.");
+            }
+            return false;
+        });
+        
+        
+        $(window).scroll(updateMenuPos);
+        /*//submit contact form to FormSpree using AJAX
+        var message = "";
 
-			$("#btn-contact-form").on("click", function() {
-				message = $("#contact-form").serialize();
-				$.ajax({
-					url: "//formspree.io/glng7121@gmail.com", 
-					method: "POST",
-					data: {message: message},
-					dataType: "json"
-				});
-				alert("Message was sent!");
-				return false;
-			});
-			*/
-		});
-
-
-
+        $("#btn-contact-form").on("click", function() {
+            message = $("#contact-form").serialize();
+            $.ajax({
+                url: "//formspree.io/glng7121@gmail.com", 
+                method: "POST",
+                data: {message: message},
+                dataType: "json"
+            });
+            alert("Message was sent!");
+            return false;
+        });
+        */
+    });
 	</script>
 </body>
 
