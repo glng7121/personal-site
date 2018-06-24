@@ -9,7 +9,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gladys Ng's site</title>
-    
 	
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,161 +23,157 @@
 	<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
 	<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
 	
-	<script type="text/javascript" src="js/header-animation.js"></script>
-	<script type="text/javascript" src="js/menuBtnAnimation.js"></script>
+	<script type="text/javascript" src="js/main_functions.js"></script>
 </head>
 
 <body>
-	<div id="header">
-		<div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
-	</div>
+    <div class="grid-container">
+        <div id="header">
+            <div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
+        </div>
 
-	<table id="belowHeader">
-		<tr>
-			<td id="menu">
-                    <!--<div class="overlay"> -->
-                        <div id="menu_desktop">
-                            <button class="menuBtn" id="btnHome"><i class="fa fa-home"></i> Home </button>
-                            <button class="menuBtn" id="btnAbout"> <i class="fa fa-user"></i> About me </button>
-                            <button class="menuBtn" id="btnResume"> <i class="fa fa-id-card"></i> Resume </button>
-                            <button class="menuBtn" id="btnProjects"> <i class="fa fa-tasks"></i> Projects </button>
-                            <button class="menuBtn" id="btnContact"> <i class="fa fa-info-circle"></i> Contact </button>
-                        </div>
-                    <!-- </div>-->
+        
+        <div id="menu">
+            <!--<div class="overlay"> -->
+                <div id="menu-desktop">
+                    <button class="menuBtn" id="btn-home"><i class="fa fa-home"></i> Home </button>
+                    <button class="menuBtn" id="btn-about"> <i class="fa fa-user"></i> About me </button>
+                    <button class="menuBtn" id="btn-resume"> <i class="fa fa-id-card"></i> Resume </button>
+                    <button class="menuBtn" id="btn-projects"> <i class="fa fa-tasks"></i> Projects </button>
+                    <button class="menuBtn" id="btn-contact"> <i class="fa fa-info-circle"></i> Contact </button>
+                </div>
+            <!-- </div>-->
 
-                    <div id="menu_mobile">
-                        <button id="menu_mobile_btn" style="display: none;"><i class="fas fa-bars"></i>
-                        </button>
-                    </div>
-			</td>
-			<td id="mainContent"> 
-				<div id="content-home">
-					<h1>Home</h1>
-					<p>
-						Welcome! This is my personal website, presumably for professional purposes. (I'm actually just trying to learn how to write a decent website.)
-						<br> <br>
-						Anyways, feel free to look around! If you're curious, <a href="https://github.com/glng7121/personal-site">here</a> is the GitHub repository for this site.
-					</p>
-				</div>
-				
-				<div id="content-about" style="display: none;">
-					<h1>About me</h1>
-					<p>
-						<img id="gladys-pic" src="gladys_pic.jpg" align="left" alt="A picture of me trying to be cool. Maybe it's for the best that you can't see it..."/>
-						Hi! Glad you made it.
-						<br><br>
-						Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
-						<br><br>
-						I'm a fourth year UCLA computer science major who apparently likes bad jokes...
-						<br><br>
-						If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
-					</p>
-				</div>
-				
-				<div id="content-projects" style="display: none;">
-					<h1>Projects</h1>
-					<p> 
-						<ul class="projectList"> <h2>Coursework Projects</h2>
-							<li>May 2017: Reliable data transfer protocol for a server and client.
-								<ul class="projectDescrip">
-									<li>Assignment for Introduction to Computer Networking course (CS118 at UCLA).</li>
-									<li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
-									<li>Language: C++</li>
-								</ul>
-							</li>
-							
-							<li>Jan. 2017: Simple bash shell imitation.
-								<ul class="projectDescrip">
-									<li>Assignment for Operating Systems Principles course (CS111 at UCLA).</li>
-									<li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection.</li>
-									<li>Language: C</li>
-								</ul>
-							</li>
-							
-							<li>Oct. 2016: "comm" shell command imitation.
-								<ul class="projectDescrip">
-									<li>Assignment for Software Construction Laboratory course (CS35L at UCLA).</li>
-									<li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec.</a></li>
-									<li>Language: Python</li>
-								</ul>
-							</li>
-						</ul>
-						<br> <br>
-					</p>
-				</div>
-				
-				<div id="content-contact" style="display: none;">
-					<h1>Contact</h1>
-					<p> 
-						I'd love to hear from you! You can find me at
-						<table id="contact-links-list">
-							<tr>
-								<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
-								<td><input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input></td>
-							</tr>
-							<tr>
-								<td><i class="fab fa-github"></i></td>
-								<td><a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a></td>
-							</tr>
-						</table>
-						Alternatively, you can send me a message using the form below.
-						<br> <br> <br>
-						
-						<!--
-                            old contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
-							basically, submits a google form with inputs from the contact form, and hides the google form redirect.
-							https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&entry.391896772=junkSenderName&entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
-                            
-                            <form id="contact-form" target="_blank" method="POST">
-                                <h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-                                <input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
-                                <input style="width: 50%;" type="email" placeholder="Your email address" name="_replyto"> <br>
-                                <textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
-                                All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
-                                <button id="btn-contact-form" type="submit"> Submit! </button>
-                            </form>
-						-->						
+            <div id="menu-mobile">
+                <button id="menu-mobile-btn" style="display: none;"><i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+       <div id="main-content"> 
+            <div id="content-home">
+                <h1>Home</h1>
+                <p>
+                    Welcome! This is my personal website, presumably for professional purposes. (I'm actually just trying to learn how to write a decent website.)
+                    <br> <br>
+                    Anyway, feel free to look around! If you're curious, <a href="https://github.com/glng7121/personal-site">here</a> is the GitHub repository for this site.
+                </p>
+            </div>
+            
+            <div id="content-about" style="display: none;">
+                <h1>About me</h1>
+                <p>
+                    <img id="gladys-pic" src="gladys_pic.jpg" align="left" alt="A picture of me trying to be cool. Maybe it's for the best that you can't see it..."/>
+                    Hi! Glad you made it.
+                    <br><br>
+                    Speaking of being glad, my name is Gladys Ng! <del>(*waits for applause*)</del>
+                    <br><br>
+                    I'm a fourth year UCLA computer science major who apparently likes bad jokes...
+                    <br><br>
+                    If you want to learn more about me, you can view my resume by clicking the Resume button on the button menu. Or you could explore this site. Whatever floats your boat!
+                </p>
+            </div>
+            
+            <div id="content-projects" style="display: none;">
+                <h1>Projects</h1>
+                <p> 
+                    <ul class="projectList"> <h2>Coursework Projects</h2>
+                        <li>May 2017: Reliable data transfer protocol for a server and client.
+                            <ul class="projectDescrip">
+                                <li>Assignment for Introduction to Computer Networking course (CS118 at UCLA).</li>
+                                <li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
+                                <li>Language: C++</li>
+                            </ul>
+                        </li>
+                        
+                        <li>Jan. 2017: Simple bash shell imitation.
+                            <ul class="projectDescrip">
+                                <li>Assignment for Operating Systems Principles course (CS111 at UCLA).</li>
+                                <li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection.</li>
+                                <li>Language: C</li>
+                            </ul>
+                        </li>
+                        
+                        <li>Oct. 2016: "comm" shell command imitation.
+                            <ul class="projectDescrip">
+                                <li>Assignment for Software Construction Laboratory course (CS35L at UCLA).</li>
+                                <li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec.</a></li>
+                                <li>Language: Python</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br> <br>
+                </p>
+            </div>
+            
+            <div id="content-contact" style="display: none;">
+                <h1>Contact</h1>
+                <p> 
+                    I'd love to hear from you! You can find me at
+                    <table id="contact-links-list">
+                        <tr>
+                            <td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+                            <td><input type="text" class="selectable-link" id="selectable-email-addr" value="glng7121@gmail.com" readonly="readonly" onclick="this.select()"> </input></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fab fa-github"></i></td>
+                            <td><a href="https://github.com/glng7121" target="_blank">github.com/glng7121</a></td>
+                        </tr>
+                    </table>
+                    Alternatively, you can send me a message using the form below.
+                    <br> <br> <br>
+                    
+                    <!--
+                        old contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
+                        basically, submits a google form with inputs from the contact form, and hides the google form redirect.
+                        https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&entry.391896772=junkSenderName&entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
+                        
+                        <form id="contact-form" target="_blank" method="POST">
+                            <h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
+                            <input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
+                            <input style="width: 50%;" type="email" placeholder="Your email address" name="_replyto"> <br>
+                            <textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
+                            All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
+                            <button id="btn-contact-form" type="submit"> Submit! </button>
+                        </form>
+                    -->						
 
-						<form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
-							<h2 style="margin: 0px; text-align: center; color: #42bbc9;">Send me a message!</h2> <br>
-							<h6 style="margin: 0px 0px 10px 0px; text-align: center;"> All fields are required. </h5>
-							
-							<table>
-								<tr>
-									<td> Your name: </td> 
-									<td class="metainfo"> <input id="name-contact-form" type="text" name="senderName"> <br> </td>
-								</tr>
-								<tr>
-									<td> Your email address: </td>
-									<td class="metainfo"> <input id="email-contact-form" type="text" name="senderAddr"> <br> </td>
-								</tr>
-								<tr>
-									<td colspan="2"> <br> Your message: </td>
-								</tr>
-								<tr>
-									<td colspan="2"> <textarea id="msg-contact-form" name="msg"></textarea> </td>
-								</tr>
-							</table>
-								<button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
-						</form>
-					
-					</p>
-				</div>
-				
-				
-				<div id="content-resume" style="display: none;">
-					<h1>Resume</h1>
-					<p>
-						If the pdf viewer below isn't working, you can open my resume in another tab <a href="gladys_resume.pdf" target="_blank">here</a>!
-						<br> <br>
-						<iframe src="gladys_resume.pdf?#zoom=100&scrollbar=0&navpanes=0" width="100%" height="400em"></iframe>
-					</p>
-				</div>
-			</td>
-		</tr>
-		
-	</table>
-
+                    <form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
+                        <h2 style="margin: 0px; text-align: center; color: #42bbc9;">Send me a message!</h2> <br>
+                        <h6 style="margin: 0px 0px 10px 0px; text-align: center;"> All fields are required. </h5>
+                        
+                        <table>
+                            <tr>
+                                <td> Your name: </td> 
+                                <td class="metainfo"> <input id="name-contact-form" type="text" name="senderName"> <br> </td>
+                            </tr>
+                            <tr>
+                                <td> Your email address: </td>
+                                <td class="metainfo"> <input id="email-contact-form" type="text" name="senderAddr"> <br> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"> <br> Your message: </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"> <textarea id="msg-contact-form" name="msg"></textarea> </td>
+                            </tr>
+                        </table>
+                            <button id="btn-contact-form" type="submit" value="Submit"> Submit! </button>
+                    </form>
+                
+                </p>
+            </div>
+            
+            
+            <div id="content-resume" style="display: none;">
+                <h1>Resume</h1>
+                <p>
+                    If the pdf viewer below isn't working, you can open my resume in another tab <a href="gladys_resume.pdf" target="_blank">here</a>!
+                    <br> <br>
+                    <iframe src="gladys_resume.pdf?#zoom=100&scrollbar=0&navpanes=0" width="100%" height="400em"></iframe>
+                </p>
+            </div>
+    </div>
 	<script>
     
     function getScrollBarWidth () {
@@ -215,8 +210,8 @@
         var barWidth = getScrollBarWidth();
         
         if (isMobile) {
-            $("#menu_desktop").hide();
-            $("#menu_mobile").show();
+            $("#menu-desktop").hide();
+            $("#menu-mobile").show();
         }
         
         checkScrollBars(barWidth);
