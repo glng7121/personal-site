@@ -4,8 +4,6 @@
 <head>
 	<link rel="icon" href="icon_titleBar.png" />
 	
-	<link rel="stylesheet" href="https://www.gstatic.com/_/freebird/_/ss/k=freebird.v.-vp5nxb3t3ehr.L.W.O/d=1/rs=AMjVe6joLxw7SyTTK0LYjogsAcuR-gERxw" data-id="_cl">
-	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gladys Ng's site</title>
@@ -13,25 +11,25 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-	<link href="styles.css" rel="stylesheet">
+    
+    <link href="styles.css" rel="stylesheet">
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <!-- 
+    Be sure to load EasePack if you want to use a specific ease
 	<script type="text/javascript" src="js/greensock/plugins/CSSPlugin.min.js"></script>
-	<!--- Be sure to load EasePack if you want to use a specific ease -->
 	<script type="text/javascript" src="js/greensock/easing/EasePack.min.js"></script>
-	<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+    -->
 	
 	<script type="text/javascript" src="js/main_functions.js"></script>
 </head>
 
 <body>
     <div class="grid-container">
-        <div id="header">
-            <div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
-        </div>
-
+        <div class="overlay"></div>
         
         <div id="menu">
             <!--<div class="overlay"> -->
@@ -44,10 +42,11 @@
                 </div>
             <!-- </div>-->
 
-            <div id="menu-mobile">
-                <button id="menu-mobile-btn" style="display: none;"><i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <button id="menu-mobile-btn"><i class="fas fa-bars"></i></button>
+        </div>
+        
+        <div id="header">
+            <div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
         </div>
         
        <div id="main-content"> 
@@ -174,8 +173,9 @@
                 </p>
             </div>
     </div>
+
 	<script>
-    
+
     function getScrollBarWidth () {
         var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
             widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
@@ -207,11 +207,11 @@
     }
 		
     $(document).ready(function() {
-        var barWidth = getScrollBarWidth();
+        let barWidth = getScrollBarWidth();
         
         if (isMobile) {
             $("#menu-desktop").hide();
-            $("#menu-mobile").show();
+            $("#menu-mobile-btn").show();
         }
         
         checkScrollBars(barWidth);
@@ -247,20 +247,30 @@
             }
         );
         
-        $("#menu_mobile_btn").click(function(event) {
-            $("#menu_mobile").hide();
-            $("#menu_desktop").show();
-            let currentBtnId = getContentId(selectedBtnId);
-            $("#"+currentBtnId).trigger('mouseenter');
-        });
+        $("#menu-mobile-btn").click(function() {
+            $("#menu-mobile-btn").hide();
+            $("#menu-desktop").show();
+            $(".overlay").show();
             
+        });
+        
+        $(".overlay").click(function() {
+            $("#menu-desktop").hide();
+            $("#menu-mobile-btn").show();
+            $(".overlay").hide();
+            //$("#main-content").scrollTop(0);
+            $('html, body').animate({
+                scrollTop: ($('#main-content').offset().top)
+            }, 200);
+        })
+          
         $("#header").each(function(i) {
                 if (!isMobile)
                     $(this).hover(headerOver, headerOut);
             }
         );
         
-        <!-- code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591 -->
+        //code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591
         
         $("#contact-form").submit(function () {
             if (checkFormValid()) {

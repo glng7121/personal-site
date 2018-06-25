@@ -7,24 +7,23 @@ function updateMenuBtnWidth(width) {
 }
 
 function buttonOver() {
-	var button = $(this);
+	let button = $(this);
+	let active_btn_style = {"backgroundColor": "#42bbc9", "color": "#fff", "width": "105%"};
 	//TweenMax.to(button, 0.2, {css: {scaleX: 0.8}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#42bbc9", color: "#fff", width: "105%"}, 150);
-	//document.getElementById("buttons").style.backgroundColor = "#000";
-	//document.getElementById("buttonLabels").style.color = "#fff";
+	if (isMobile)
+		button.css(active_btn_style);
+	else
+		button.stop().animate(active_btn_style, 150);
 }
 
 function buttonOut() {
-	var button = $(this);
+	let button = $(this);
+	let inactive_btn_style = {"backgroundColor": "#fff", "color": "#085191", "width": "100%"};
 	//TweenMax.to(button, 0.2, {css: {scaleX: 1}, ease:Cubic.easeInOut});
-	button.stop().animate({backgroundColor: "#fff", color: "#085191", width: "100%"}, 150);
-	//document.getElementById("buttons").style.backgroundColor = "#fff";
-	//document.getElementById("buttonLabels").style.color = "#000";
-    
-    if (isMobile) {
-        $("#menu_desktop").hide();
-        $("#menu_mobile").show();
-    }
+	if (isMobile)
+		button.css(inactive_btn_style);
+	else
+		button.stop().animate(inactive_btn_style, 150);
 }
 
 function getContentId (btnId) {
