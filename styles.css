@@ -4,7 +4,6 @@
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
 }
@@ -51,6 +50,7 @@ body, input, textarea {
     display: grid;
     grid-template-columns: 20fr 100fr;
 	grid-template-rows: minmax(2fr, 10fr) 100fr;
+	grid-gap: 5px;
 }
 
 /* #main-content styling */
