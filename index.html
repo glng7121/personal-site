@@ -12,8 +12,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     
-    <link href="styles.css" rel="stylesheet">
-	
+    <link href="stylesheets/main_styles.css" rel="stylesheet">
+
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -121,21 +121,6 @@
                     </table>
                     Alternatively, you can send me a message using the form below.
                     <br> <br> <br>
-                    
-                    <!--
-                        old contact form idea is taken from https://github.com/toperkin/staticFormEmails/blob/master/README.md !
-                        basically, submits a google form with inputs from the contact form, and hides the google form redirect.
-                        https://docs.google.com/forms/d/e/1FAIpQLSe-yN-vq6IdEPW0BC_9hWwzzBJsh3wxs97xgbLrI02jh-evpA/viewform?usp=pp_url&entry.391896772=junkSenderName&entry.766027190=junkSenderEmail&entry.1753659212=junkMessage
-                        
-                        <form id="contact-form" target="_blank" method="POST">
-                            <h2 style="text-align: center; color: #42bbc9;">Send me a message!</h2><br>
-                            <input style="width: 50%;" type="text" placeholder="Your name" name="_sendername"> <br>
-                            <input style="width: 50%;" type="email" placeholder="Your email address" name="_replyto"> <br>
-                            <textarea style="width: 95%;" id="msg-contact-form" placeholder="Your message" name="_msg"></textarea> <br> <br>
-                            All fields are optional. Pressing the submit button will open a new tab with a reCAPTCHA from Formspree that you must complete. <br> <br>
-                            <button id="btn-contact-form" type="submit"> Submit! </button>
-                        </form>
-                    -->						
 
                     <form id="contact-form" method="GET" action="https://script.google.com/macros/s/AKfycbyJeAz54634IS8p7Trbh-8Ce98YOVdTxMTwcbCAsaD4GU0wEFny/exec">
                         <h2 style="margin: 0px; text-align: center; color: #42bbc9;">Send me a message!</h2> <br>
@@ -173,148 +158,7 @@
                 </p>
             </div>
     </div>
-
-	<script>
-
-    function getScrollBarWidth () {
-        var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
-            widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
-        $outer.remove();
-        return 100.0 - widthWithScroll;
-    };
-
-    var checkScrollBars = function(barWidth) {
-        var newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
-        $("#menu").css({paddingRight: newPaddingRight+"px"});
-    }
-
-    function checkFormValid () {
-        var isNameValid = true, isEmailValid = true, isMsgValid = true;
-        
-        if (!$("#name-contact-form").val()) {
-            isNameValid = false;
-        }
-        
-        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
-            isEmailValid = false;
-        }
-        
-        if (!$("#msg-contact-form").val()) {
-            isMsgValid = false;
-        }
-        
-        return isNameValid && isEmailValid && isMsgValid;
-    }
-		
-    $(document).ready(function() {
-        let barWidth = getScrollBarWidth();
-        
-        if (isMobile) {
-            $("#menu-desktop").hide();
-            $("#menu-mobile-btn").show();
-        }
-        
-        checkScrollBars(barWidth);
-        
-        $(".menuBtn").each(function(i) {
-                $(this).hover(buttonOver, buttonOut);
-                
-                $(this).click(function(event) {
-                    let oldContentId = getContentId(selectedBtnId);
-                    let clickedBtnId = jQuery(this).attr("id");
-                    let newContentId = getContentId(clickedBtnId);
-                    
-                    /*
-                    $("#"+oldContentId).stop().fadeOut( 200, function () {
-                            $("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
-                        }
-                    );
-                    */
-                    
-                    $("#"+oldContentId).stop().fadeOut(200);
-                    $("#"+oldContentId).promise().done(function() {
-                        $("#"+newContentId).stop().fadeIn(200);
-                        $("#"+newContentId).promise().done(function() {
-                            let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
-                            let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
-                            //$("#menu").css({paddingRight: newPaddingRight+"px"});
-                            //$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
-                        });
-                    })
-                    
-                    selectedBtnId = clickedBtnId;
-                } );
-            }
-        );
-        
-        $("#menu-mobile-btn").click(function() {
-            $("#menu-mobile-btn").hide();
-            $("#menu-desktop").show();
-            $(".overlay").show();
-            
-        });
-        
-        $(".overlay").click(function() {
-            $("#menu-desktop").hide();
-            $("#menu-mobile-btn").show();
-            $(".overlay").hide();
-            //$("#main-content").scrollTop(0);
-            $('html, body').animate({
-                scrollTop: ($('#main-content').offset().top)
-            }, 200);
-        })
-          
-        $("#header").each(function(i) {
-                if (!isMobile)
-                    $(this).hover(headerOver, headerOut);
-            }
-        );
-        
-        //code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591
-        
-        $("#contact-form").submit(function () {
-            if (checkFormValid()) {
-                $.ajax({
-                    data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //consistent with html formatting of the google web app emails. todo: fix app to accept encoded chars
-                    type: $(this).attr('method'),
-                    url: $(this).attr('action'),
-                    dataType: "jsonp",
-                    success: function(data, status, jqXHR) {
-                        alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
-                        $("#contact-form")[0].reset();
-                    },
-                    error: function(jqXHR, status, errorThrown) {
-                        alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
-                    }
-                });
-            }
-            else {
-                alert("Error: one or more fields of the form are invalid.");
-            }
-            return false;
-        });
-        
-        
-        $(window).scroll(updateMenuPos);
-        /*//submit contact form to FormSpree using AJAX
-        var message = "";
-
-        $("#btn-contact-form").on("click", function() {
-            message = $("#contact-form").serialize();
-            $.ajax({
-                url: "//formspree.io/glng7121@gmail.com", 
-                method: "POST",
-                data: {message: message},
-                dataType: "json"
-            });
-            alert("Message was sent!");
-            return false;
-        });
-        */
-    });
-	</script>
 </body>
-
 
 
 </html>

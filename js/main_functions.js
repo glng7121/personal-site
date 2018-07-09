@@ -1,4 +1,6 @@
-/* for menu */
+/* ===================================
+    for menu 
+=====================================*/
 
 function updateMenuBtnWidth(width) {
 	buttonWidth = width;
@@ -48,16 +50,10 @@ function getContentId (btnId) {
 	}
 }
 
-function updateMenuPos() {
-	let menuCoord = document.getElementById("menu").getBoundingClientRect();
-	/*if (menuCoord.top < 0) {
-		menu.style.top = 50+"px";
-	}
-	console.log("menu window-top (JS): "+menuCoord.top);
-	console.log("menu position-top (jquery): "+$("#menu").position().top); */
-}
+/* ===================================
+    for header
+=====================================*/
 
-/* for header */
 function headerOver() {
 	var header = $(this);
 	var headerText = $("#header-text");
@@ -77,7 +73,31 @@ function animateHeader() {
   tl.staggerTo(splitPhrase.chars, 2, {bottom: 5, ease: Bounce.easeOut}, 0.02);
 }
 
-/* misc functions */
+/* ===================================
+    for contact form
+=====================================*/
+
+function checkFormValid () {
+    var isNameValid = true, isEmailValid = true, isMsgValid = true;
+    
+    if (!$("#name-contact-form").val()) {
+        isNameValid = false;
+    }
+    
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
+        isEmailValid = false;
+    }
+    
+    if (!$("#msg-contact-form").val()) {
+        isMsgValid = false;
+    }
+    
+    return isNameValid && isEmailValid && isMsgValid;
+}
+
+/* ===================================
+    misc functions
+=====================================*/
 
 //mobilecheck function from https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser (that regex though)
 window.mobilecheck = function() {
@@ -86,5 +106,108 @@ window.mobilecheck = function() {
   return check;
 };
 
+/* ===================================
+    handler setup
+=====================================*/
 let selectedBtnId = "btn-home";
 let isMobile = window.mobilecheck();
+
+$(document).ready(function() {
+    if (isMobile) {
+        $("#menu-desktop").hide();
+        $("#menu-mobile-btn").show();
+    }
+    
+    $(".menuBtn").each(function(i) {
+            $(this).hover(buttonOver, buttonOut);
+            
+            $(this).click(function(event) {
+                let oldContentId = getContentId(selectedBtnId);
+                let clickedBtnId = jQuery(this).attr("id");
+                let newContentId = getContentId(clickedBtnId);
+                
+                /*
+                $("#"+oldContentId).stop().fadeOut( 200, function () {
+                        $("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
+                    }
+                );
+                */
+                
+                $("#"+oldContentId).stop().fadeOut(200);
+                $("#"+oldContentId).promise().done(function() {
+                    $("#"+newContentId).stop().fadeIn(200);
+                    $("#"+newContentId).promise().done(function() {
+                        let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
+                        let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
+                        //$("#menu").css({paddingRight: newPaddingRight+"px"});
+                        //$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
+                    });
+                })
+                
+                selectedBtnId = clickedBtnId;
+            } );
+        }
+    );
+    
+    $("#menu-mobile-btn").click(function() {
+        $("#menu-mobile-btn").hide();
+        $("#menu-desktop").show();
+        $(".overlay").show();
+        
+    });
+    
+    $(".overlay").click(function() {
+        $("#menu-desktop").hide();
+        $("#menu-mobile-btn").show();
+        $(".overlay").hide();
+        //$("#main-content").scrollTop(0);
+        $('html, body').animate({
+            scrollTop: ($('#main-content').offset().top)
+        }, 200);
+    })
+      
+    $("#header").each(function(i) {
+            if (!isMobile)
+                $(this).hover(headerOver, headerOut);
+        }
+    );
+    
+    //code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591
+    $("#contact-form").submit(function () {
+        if (checkFormValid()) {
+            $.ajax({
+                data: $(this).serialize().replace(/%0D%0A/g, "<br>"), //ensures consistency with html formatting of the google web app emails. todo: fix app to accept encoded chars
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                dataType: "jsonp",
+                success: function(data, status, jqXHR) {
+                    alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
+                    $("#contact-form")[0].reset();
+                },
+                error: function(jqXHR, status, errorThrown) {
+                    alert("Error: submission has failed. Please try again. Sorry for the inconvenience!");
+                }
+            });
+        }
+        else {
+            alert("Error: one or more fields of the form are invalid.");
+        }
+        return false;
+    });
+    
+    /*//submit contact form to FormSpree using AJAX
+    var message = "";
+
+    $("#btn-contact-form").on("click", function() {
+        message = $("#contact-form").serialize();
+        $.ajax({
+            url: "//formspree.io/glng7121@gmail.com", 
+            method: "POST",
+            data: {message: message},
+            dataType: "json"
+        });
+        alert("Message was sent!");
+        return false;
+    });
+    */
+});
