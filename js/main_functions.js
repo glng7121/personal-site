@@ -12,20 +12,24 @@ function buttonOver() {
 	let button = $(this);
 	let active_btn_style = {"backgroundColor": "#42bbc9", "color": "#fff", "width": "105%"};
 	//TweenMax.to(button, 0.2, {css: {scaleX: 0.8}, ease:Cubic.easeInOut});
-	if (isMobile)
+	if (isMobile) {
 		button.css(active_btn_style);
-	else
+	}
+	else {
 		button.stop().animate(active_btn_style, 150);
+	}
 }
 
 function buttonOut() {
 	let button = $(this);
 	let inactive_btn_style = {"backgroundColor": "#fff", "color": "#085191", "width": "100%"};
 	//TweenMax.to(button, 0.2, {css: {scaleX: 1}, ease:Cubic.easeInOut});
-	if (isMobile)
+	if (isMobile) {
 		button.css(inactive_btn_style);
-	else
+	}
+	else {
 		button.stop().animate(inactive_btn_style, 150);
+	}
 }
 
 function getContentId (btnId) {
@@ -44,9 +48,9 @@ function getContentId (btnId) {
 			break;
 		case "btn-resume":
 			return "content-resume";
-		break;
+			break;
 		default:
-			//inexistent button. shouldn't happen. do nothing
+			return null;
 	}
 }
 
@@ -79,19 +83,15 @@ function animateHeader() {
 
 function checkFormValid () {
     var isNameValid = true, isEmailValid = true, isMsgValid = true;
-    
     if (!$("#name-contact-form").val()) {
         isNameValid = false;
     }
-    
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email-contact-form").val())) {
         isEmailValid = false;
     }
-    
     if (!$("#msg-contact-form").val()) {
         isMsgValid = false;
     }
-    
     return isNameValid && isEmailValid && isMsgValid;
 }
 
@@ -119,58 +119,39 @@ $(document).ready(function() {
     }
     
     $(".menuBtn").each(function(i) {
-            $(this).hover(buttonOver, buttonOut);
-            
-            $(this).click(function(event) {
-                let oldContentId = getContentId(selectedBtnId);
-                let clickedBtnId = jQuery(this).attr("id");
-                let newContentId = getContentId(clickedBtnId);
-                
-                /*
-                $("#"+oldContentId).stop().fadeOut( 200, function () {
-                        $("#"+newContentId).stop().fadeIn(200, checkScrollBars(barWidth));
-                    }
-                );
-                */
-                
-                $("#"+oldContentId).stop().fadeOut(200);
-                $("#"+oldContentId).promise().done(function() {
-                    $("#"+newContentId).stop().fadeIn(200);
-                    $("#"+newContentId).promise().done(function() {
-                        let newPaddingRight = $(document).height() > $(window).height()? 0 : barWidth;
-                        let menuWidthRatio = $("#menu").width() / $("#menu").parent().width();
-                        //$("#menu").css({paddingRight: newPaddingRight+"px"});
-                        //$("#menu").css({width: $("#menu").width()+newPaddingRight +"px"});
-                    });
-                })
-                
-                selectedBtnId = clickedBtnId;
-            } );
-        }
-    );
+		$(this).hover(buttonOver, buttonOut);
+		$(this).click(function(event) {
+			let oldContentId = getContentId(selectedBtnId);
+			let clickedBtnId = jQuery(this).attr("id");
+			let newContentId = getContentId(clickedBtnId);
+			$("#"+oldContentId).stop().fadeOut(200);
+			$("#"+oldContentId).promise().done(function() {
+				$("#"+newContentId).stop().fadeIn(200);
+			});
+			selectedBtnId = clickedBtnId;
+		});
+	});
     
     $("#menu-mobile-btn").click(function() {
         $("#menu-mobile-btn").hide();
         $("#menu-desktop").show();
         $(".overlay").show();
-        
     });
     
     $(".overlay").click(function() {
         $("#menu-desktop").hide();
         $("#menu-mobile-btn").show();
         $(".overlay").hide();
-        //$("#main-content").scrollTop(0);
         $('html, body').animate({
             scrollTop: ($('#main-content').offset().top)
         }, 200);
-    })
+    });
       
     $("#header").each(function(i) {
-            if (!isMobile)
-                $(this).hover(headerOver, headerOut);
+		if (!isMobile) {
+			$(this).hover(headerOver, headerOut);
         }
-    );
+    });
     
     //code below is based off of https://stackoverflow.com/questions/7335780/how-to-post-a-django-form-with-ajax-jquery/7336591#7336591
     $("#contact-form").submit(function () {
@@ -194,20 +175,4 @@ $(document).ready(function() {
         }
         return false;
     });
-    
-    /*//submit contact form to FormSpree using AJAX
-    var message = "";
-
-    $("#btn-contact-form").on("click", function() {
-        message = $("#contact-form").serialize();
-        $.ajax({
-            url: "//formspree.io/glng7121@gmail.com", 
-            method: "POST",
-            data: {message: message},
-            dataType: "json"
-        });
-        alert("Message was sent!");
-        return false;
-    });
-    */
 });
