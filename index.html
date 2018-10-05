@@ -48,7 +48,7 @@
         </div>
         
         <div id="header">
-            <div id="header-text"><b>Welcome to Gladys Ng's website!</b></div>
+            <div id="header-text"><b>Welcome to Gladys' website!</b></div>
         </div>
         
        <div id="main-content"> 
@@ -77,33 +77,61 @@
             
             <div id="content-projects" style="display: none;">
                 <h1>Projects</h1>
+				<p> 
+                    <ul class="projectList"> <h2>Personal Projects</h2>
+                        <li>July 2018 - Current: Exercise web app that lets you customize and run workouts.
+                            <ul class="projectDescrip">
+								<li>Customizable workout name, exercise, break time, and sets</li>
+                                <li>During workout run, announces set reps and break time countdowns with voiceovers from Azure's Text-to-Speech API</li>
+                                <li>React.js front-end with an Express.js server that serves cached voiceovers</li>
+								<li><a href="https://sleepy-reef-41418.herokuapp.com/">Demo</a> and <a href="https://github.com/glng7121/exercise-app">source code</a>
+								<li>Casually developing for my dad and myself</li>
+                            </ul>
+                        </li>
+                </p>
                 <p> 
                     <ul class="projectList"> <h2>Coursework Projects</h2>
-                        <li>May 2017: Reliable data transfer protocol for a server and client.
+                        <li>February 2018 - March 2018: MEAN stack blog site where authenticated users can edit their posts
                             <ul class="projectDescrip">
-                                <li>Assignment for Introduction to Computer Networking course (CS118 at UCLA).</li>
-                                <li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file.</li>
+                                <li>Assignment for Web Applications course (CS144 at UCLA). 2-person group project</li>
+								<li>Designed interactive editor, preview, and post collection panes with Bootstrap</li>
+                                <li>Revamped editor to attempt posts retrieval from the back-end server via HTTP requests. On error, gracefully continues offline</li>
+                                <li>Frameworks: Angular.js, Express.js, Node.js, Bootstrap</li>
+                            </ul>
+                        </li>
+						
+						<li>November 2017: Python server that propagates locations or fails gracefully
+                            <ul class="projectDescrip">
+                                <li>Assignment for Programming Languages course (CS131 at UCLA)</li>
+                                <li>Implemented an asynchronous server that responds to client commands, exchanges client locations within a cluster of servers, and consults the Google Places API for places near the client</li>
+                                <li>Language: Python (with asyncio library)</li>
+                            </ul>
+                        </li>
+						
+                        <li>May 2017: Reliable data transfer protocol for a server and client
+                            <ul class="projectDescrip">
+                                <li>Assignment for Introduction to Computer Networking course (CS118 at UCLA)</li>
+                                <li>Implemented a client and server that uses a reliable protocol similar to TCP over unreliable UDP sockets to transfer a file</li>
                                 <li>Language: C++</li>
                             </ul>
                         </li>
                         
-                        <li>Jan. 2017: Simple bash shell imitation.
+                        <li>Jan. 2017: Simple bash shell imitation
                             <ul class="projectDescrip">
-                                <li>Assignment for Operating Systems Principles course (CS111 at UCLA).</li>
-                                <li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection.</li>
+                                <li>Assignment for Operating Systems Principles course (CS111 at UCLA)</li>
+                                <li>Wrote a script that behaves as a shell. Supports common shell commands, pipelining, file descriptor read-write-create manipulation, and signal detection</li>
                                 <li>Language: C</li>
                             </ul>
                         </li>
                         
-                        <li>Oct. 2016: "comm" shell command imitation.
+                        <li>Oct. 2016: "comm" shell command imitation
                             <ul class="projectDescrip">
-                                <li>Assignment for Software Construction Laboratory course (CS35L at UCLA).</li>
-                                <li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec.</a></li>
+                                <li>Assignment for Software Construction Laboratory course (CS35L at UCLA)</li>
+                                <li>Implemented "comm," the command that compares two input files' contents line-by-line. Satisfied <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/comm.html" target="_blank">this comm spec</a></li>
                                 <li>Language: Python</li>
                             </ul>
                         </li>
                     </ul>
-                    <br> <br>
                 </p>
             </div>
             
