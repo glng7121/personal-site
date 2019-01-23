@@ -162,7 +162,7 @@ $(document).ready(function() {
                 url: $(this).attr('action'),
                 dataType: "jsonp",
                 success: function(data, status, jqXHR) {
-                    alert("Successfully submitted. Thank you! I'll email a reply as soon as possible.");
+                    alert("Successfully submitted! I'll email a reply as soon as possible. (I'm so glad someone is using the form! Thank you! :D)");
                     $("#contact-form")[0].reset();
                 },
                 error: function(jqXHR, status, errorThrown) {
